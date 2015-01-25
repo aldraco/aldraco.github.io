@@ -1,1 +1,75 @@
-Hello World
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Tiny Blue Bicycle | Ashley Drake</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="assets/stylesheets/stylesheet.css">
+        <script src="assets/js/jquery.js"></script>
+        <script src="assets/js/mainjavascript.js"></script>
+
+    </head>
+    <body>
+        <div class="container group">
+            <header>
+                 <div class="main-title group">
+                    <!--<div class="logo"></div>-->
+                    <h1>Projects</h1>
+                </div>
+            </header>
+            <div class="sidebar">
+                
+                    
+                    <div class="main-nav">
+                        <nav>
+                            <ul>
+                                <li>Home</li>
+                                <li>Projects</li>
+                                <li>About</li>
+                                <li>Contact</li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="blurb">
+                        <div class="bubblehead"></div>
+                        <div>
+                            <p>I'm Ashley Drake, owner of Tiny Blue Bicycle. I make websites. Thanks for stopping by.</p>
+                        </div>
+                    </div>
+                
+            </div>
+            
+                
+                <div class="main-content">
+                    <main>
+                        <p>This is a summary of the work I have done to date.</p>
+                        <div class="container">
+                        <article>
+                        <div class="project-card">              
+                            <!--TODO: how to get unique images on JS generated divs?-->
+                            
+                                <h1>Title of Project</h1>
+                                <p>This is a description of the project in question, aimed at showing off specific skills.
+                                <span>This is another paragraph that I want to hide, but show when the user clicks on the card.</span></p>
+                             
+                        </div>
+                    </article>
+                </div>
+                    </main>
+                    
+                </div>
+            
+            
+        </div>
+        <script>
+
+$("article").on('click', function() {$(this).toggleClass('show-description');
+});
+</script>
+    </body>
+</html>

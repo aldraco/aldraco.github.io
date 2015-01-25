@@ -1,0 +1,256 @@
+/* 
+    Created on : Jan 19, 2015, 2:26:13 PM
+    Author     : aldraco email a(dot)l(dot)drake713(at)gmail(dot)com
+*/
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* ==================================
+Custom Styles
+===================================*/
+
+body {
+    font-family: helvetica, sans-serif;
+}
+
+/*  ======= TYPOGRAPHY ========== */
+
+h1 {
+    font-size: 75px;
+}
+
+h5 {
+    text-transform: uppercase;
+}
+
+/* ==================================
+Grid and Layout
+===================================*/
+
+.container {
+    width: 90%;
+    max-width: 1080px;
+    margin: 40px auto;
+    box-sizing: border-box;
+}
+
+.sidebar {
+    width: 26.6%;       /* 250/940 px */
+    float: left;
+    margin: 0 0 2.13% 2.13%;
+}
+
+.logo {
+    border: 1px solid green;
+    float: left;
+    background: url('http://placehold.it/250x100');
+    background-repeat: no-repeat;
+    height: 100px;
+    max-width: 250px%;              /*how to make the images responsive?*/
+}
+
+.blurb {
+    padding: 10px;
+}
+
+.bubblehead {
+    border-radius: 50%;
+    background: black;
+    background-image: url("http://placehold.it/75x75");
+    height: 75px;
+    width: 75px;
+    background-size: cover;
+    margin: 0 auto 20px auto;
+}
+
+.main-title {
+    border-bottom: 3px solid gray;
+    text-align: center;
+    height: 100px;
+    width: 95.74%;
+    margin: 2.13%;
+    padding: 3.39%;
+    box-sizing: border-box;
+}
+
+.main-content {
+    margin-left: 30.85%%;        /*290 px/940px*/
+    width: 67.02%;
+    padding: 3.39%;      /*20px padding*/
+    box-sizing: border-box;
+}
+
+.footer {
+    border: 1px dotted gray;
+    width: 67.02%;
+    margin-left: 30.85%;
+    /*TODO: get the footer to stick to the bottom*/
+}
+
+/* ==================================
+project cards
+===================================*/
+.project-card {
+    width: 200px;
+    height: 350px;
+    box-shadow: 0px 3px 4px rgba(0,0,0,.3);
+    border-radius: 10px;
+    position: relative;
+    border: 3px dotted black;
+    display: inline-block;
+    
+}
+
+.project-card h1 {
+    font-size:24px;
+    color: purple;
+    text-align: center;
+    padding: 10px;
+}
+
+.project-card h5 {
+    font-size: 16px;
+    color: purple;
+    text-transform: uppercase;
+}
+
+.project-card p {
+    background: rgba(0,0,0,.3);
+    color: white;
+    position: absolute;
+    bottom: 0;
+    padding: 10px;
+    border-radius: 0 0 10px 10px;
+    transition: .5s;
+    height: 75px;
+}
+
+.show-description span {
+    opacity: 1;
+}
+
+.show-description p {
+    height: 150px;
+}
+
+span {
+    opacity: 0;
+    height: 0;
+}
+
+
+/* ==================================
+navigation
+===================================*/
+
+
+.main-nav {
+}
+
+ul li {
+    text-align: center;
+    text-transform: uppercase;
+    padding: 40px 20px;
+    border-bottom: 1px dotted blue;
+}
+ul li:last-child {
+    border-bottom: none;
+    margin-bottom: 50px;
+}
+
+/* ==================================
+Clearfix
+===================================*/
+
+.group:before,
+.group:after {
+    content: "";
+    display: table;
+}
+
+.group:after {
+    clear: both;
+}
+
+.group {
+    clear: both;
+    *zoom: 1;
+}
+
+/* ==================================
+Media Queries
+===================================*/
+
+@media screen and (max-width: 480px) {              /*iPhone landscape mode, fluid design scales to portrait*/
+    .sidebar {
+        float: none;
+        width: inherit;
+        margin: 2.13% auto;
+
+    }
+    .sidebar ul li {
+        text-align: center;
+        padding: 10px;
+        border-top: 1px solid green;
+        margin: 0 auto;
+    }
+    .main-content, .main-title, .footer, .project-card {
+        float: none;
+        width: inherit;
+        margin: 0 auto;
+
+    }
+    .project-card {
+
+    }
+    .blurb {
+        height: 0;
+    }
+}
