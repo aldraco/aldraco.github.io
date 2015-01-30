@@ -35,49 +35,34 @@ and open the template in the editor.
                             </ul>
                         </nav>
                     </div>
-                    <div class="blurb">
-                        <div class="bubblehead"></div>
-                        <div>
-                            <p>I'm Ashley Drake. I make websites. I would love to work with you.</p>
-                        </div>
-                    </div>
+                    
                 
             </div>
             
-                
-                <div class="main-content">
-                    <main>
+                    <main class="main-content">
                         <div class="container">
-                            <div class="banner">
-                                <p>This is a template for future projects - and a project in and of itself, I suppose!</p>
-                            </div>
-                        <article>
-                            <div class="project-card">   
-                                <h1>Title of Project</h1>           
-                                <p>Test paragraph. test test test test test test test test test test test test.</p>    
-                            </div>
-                    </article>
-                    <article>
-                            <div class="project-card">              
-                                <!--TODO: how to get unique images on JS generated divs?-->
-                                
-                                    <h1>Title of Project</h1>
-                                    <p>This is a description of the project in question, aimed at showing off specific skills.
-                                    <span>This is another paragraph that I want to hide, but show when the user clicks on the card.</span></p>
-                                 
-                            </div>
-                    </article>
-                </div>
-                    </main>
+                            <header class="banner">
+                                <p>Here are some examples of recent projects I have completed.</p>
+                            </header>
+                        <article class="project-card" id="east-brookfield">
+                            
+                                <p>East Brookfield Community Church</br>
+                                <small>The church's website needed to reflect both the warm, friendly congregation and the quaint historic New England building they meet in.</br>This site utilizes responsive styles, a custom Wordpress blog installation, and some light javascript.</small>
+                            </p>
+                        </article>
                     
-                </div>
-            
-            
+                        </div>
+                    </main>
         </div>
         <script>
 
-//$("article").on('click', function() {$(this).toggleClass('show-description');
-//});
+$("article").on('mouseover', function() 
+    {console.log("bloop");
+    $(this).addClass('show-description');
+    }
+    ).on('mouseleave', function() {
+        $(this).removeClass('show-description');
+});
 </script>
     </body>
 </html>
