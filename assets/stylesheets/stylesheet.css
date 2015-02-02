@@ -57,13 +57,20 @@ Custom Styles
 ===================================*/
 
 body {
-    font-family: 'Raleway', Helvetica, sans-serif;
+    font-family: 'Lora', serif;
 }
 
 /*  ======= TYPOGRAPHY ========== */
 
 h1 {
-    font-size: 75px;
+    font-size: 36px;
+    padding-bottom: 20px;
+    color: #0086B2;
+}
+h4 {
+    font-size: 24px;
+    padding: 10px;
+    margin-bottom: 10px;
 }
 
 h5 {
@@ -142,14 +149,17 @@ Grid and Layout
     padding: 3.39%;
     box-sizing: border-box;
 }
+.main-title h1 {
+    font-size: 75px;
+}
 
 .banner {
     padding: 20px;
-    margin: 0 auto 30px auto;
+    margin: 0 auto 0 auto;
     display: block;
     font-size: 1.5em;
-
 }
+
 
 .main-content {
     margin-left: 30.85%%;        /*290 px/940px*/
@@ -183,12 +193,12 @@ project cards
 .project-card {
     width: 100%;
     height: 350px;
-    box-shadow: 0px 3px 4px rgba(0,0,0,.3);
+    box-shadow: 3px 3px 4px 3px rgba(0,0,0,.3);
     border-radius: 10px;
     position: relative;
     display: inline-block;
     margin: 10px;
-    background: black;
+    background: gray;
     
 }
 
