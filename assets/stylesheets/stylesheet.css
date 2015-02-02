@@ -111,9 +111,9 @@ Grid and Layout
 }
 
 .main-title {
+    font-family: 'Monoton', cursive;
     border-bottom: 3px solid gray;
     text-align: center;
-    height: 100px;
     width: 95.74%;
     margin: 2.13%;
     padding: 3.39%;
