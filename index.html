@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!--Copyright Ashley Drake, 2015-->
+<html>
+    <head>
+        <title>Ashley Drake | Portfolio</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="assets/stylesheets/stylesheet.css">
+        <link href='http://fonts.googleapis.com/css?family=Lora:400,400italic|Monoton' rel='stylesheet' type='text/css'>
+        <script src="assets/js/jquery.js"></script>
+        <script src="assets/js/mainjavascript.js"></script>
+
+    </head>
+    <body>
+        <div class="container group">
+            <header class="main-title group">
+                 <h1>Ashley Drake</h1>
+
+            </header>
+            <div class="sidebar">
+                
+                    
+                    <div class="main-nav">
+                        <nav>
+                            <ul>
+                                
+                                <li><a href="index.html">Projects</a></li>
+                                <li><a href="about.html">About</a></li>
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                    
+                
+            </div>
+            
+                    <main class="main-content">
+                        <div class="container">
+                            <header class="banner">
+                                <h1>Projects</h1>
+                            </header>
+                        <article class="project-card" id="east-brookfield">
+                                <p><em><a href="http://eastbrookfieldccvt.com">East Brookfield Community Church</a></em></br>
+                                <small>&nbsp;The church's website needed to reflect both the warm, open-minded congregation and the quaint historic New England building they meet in.</br>&nbsp;This site utilizes responsive styles, a custom Wordpress blog installation, and some light javascript.</small>
+                            </p>
+                        </article>
+                        <header class="banner">
+                                <h1>In Progress</h1>
+                            </header>
+                        <article class="project-card" id="portfolio">
+                                <p><em><a href="http://aldraco.github.io">Personal Portfolio</a></em></br>
+                                <small>The goal of a portfolio is to demonstrate all of the skills in my toolbox. I will add to it as they grow.</small>
+                            </p>
+                        </article>
+                    
+                        </div>
+                    </main>
+        </div>
+        <script>
+
+$("article").on('mouseover', function() {
+    $(this).addClass('show-description');
+    }
+    ).on('mouseleave', function() {
+        $(this).removeClass('show-description');
+});
+</script>
+    </body>
+</html>
