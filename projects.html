@@ -12,6 +12,8 @@
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+
 
 
     <!-- Custom styles for this template -->
@@ -21,32 +23,44 @@
 <!-- NAVBAR
 ================================================== -->
   <body>
-<header class="navbar navbar-default navbar-static-top" role="banner">
-  <div class="container">
-    <div class="navbar-header">
-      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a href="index.html" class="navbar-brand">Ashley Drake</a>
+    <div class="navbar-wrapper">
+      <div class="container">
+
+        <nav class="navbar navbar-inverse navbar-static-top">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="/index.html">Ashley Drake</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="projects.html">Projects</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="about.html#contact">Contact</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Links I love <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="http://freecodecamp.com">Free Code Camp</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li class="dropdown-header">Nav header</li>
+                    <li><a href="#">Separated link</a></li>
+                    <li><a href="#">One more separated link</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+      </div>
     </div>
-    <nav class="collapse navbar-collapse" role="navigation">
-      <ul class="nav navbar-nav">
-        <li>
-          <a href="#">About</a>
-        </li>
-        <li>
-          <a href="#">Contact</a>
-        </li>
-        <li>
-          <a href="#">More ...</a>
-        </li>
-      </ul>
-    </nav>
-  </div>
-</header>
 
 <!-- Begin Body -->
 <div class="container">
@@ -91,17 +105,7 @@
                   </div>  
                 </div>
             
-                <h3>Considerations</h3>
-              	<strong>Mobile Friendly</strong>     
-                <p>Since consumers are <a href="http://techcrunch.com/2014/08/21/majority-of-digital-media-consumption-now-takes-place-in-mobile-apps/">overwhelmingly accessing the internet via mobile devices</a>, a good web strategy makes use of a well-designed mobile site as well as a fully-featured desktop version.</p> 
-                <strong>Form follows function</strong>     
-                <p>Even on a desktop, consumers primarily need information when they visit a website. What do they see first? What parts are 'above the fold' and which are below? Does the navigation bar make sense? I try to simplify the route to getting relevant information as much as possible - it should not take more than three clicks to get what you need.</p>
-                <strong>Custom vs out of the box?</strong>     
-                <p>What's better, a templated site or a bespoke solution? It depends on the needs of the customer. Generic solutions can often be quickly customized, satisfying a customer's budgetary needs as well as maintaining individuality.</p>     
-              	
-              	
-              
-              
+                
               	
               
               	<hr>
