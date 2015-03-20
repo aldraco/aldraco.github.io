@@ -129,6 +129,10 @@ body {
   .featurette-heading {
     font-size: 50px;
   }
+
+  .carousel-img {
+    max-width: 200px;
+  }
 }
 
 @media (min-width: 992px) {
