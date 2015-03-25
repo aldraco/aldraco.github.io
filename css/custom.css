@@ -6,3 +6,15 @@
 .carousel-caption.carousel-text {
 	padding: 20px;
 }
+
+img.slider-pics {
+	overflow: hidden;
+}
+
+.project-clipping {
+	padding-bottom: 30px;
+}
+
+.about-section {
+	padding: 20px 0;
+}
