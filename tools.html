@@ -85,30 +85,43 @@
           <h1>Toolbox</h1>
             <div ng-controller="BricksCtrl">
               <h3>Angular</h3>
-                <h4><a href="https://github.com/passy/angular-masonry">Masonry</a></h4>
-                  <p>This fun little tool displays images like bricks, interlocking pieces and sorting by size. It works really well with dynamic interfaces that may fetch pictures that are not of equal sizes/shapes.</p>
-                  <div class="span-12">
-                    <div masonry>
-                      <div class="masonry-brick" ng-repeat="brick in bricks" column-width="100">
-                        <img ng-src="{{brick.src}}" class="thumbnail toolbox-photos">
+                <div class="panel">
+                  <span class="col-md-12 expandable"><h4>Masonry</h4></span>
+                  <div class="collapse">
+                    <p><a href="https://github.com/passy/angular-masonry">Masonry</a> displays images like bricks, interlocking pieces and sorting by size. It works really well with dynamic interfaces that may fetch pictures that are not of equal sizes/shapes.</p>
+                    <div class="btn-group btn-group-lg" style="{margin: 0 auto;}">
+                      <button class="btn btn-primary" ng-click="add()">get another one</button>
+                      <button class="btn btn-secondary" ng-click="remove()">take one off</button>
+                    </div>
+                    <div class="col-md-12">
+                      <div masonry>
+                        <div class="masonry-brick" ng-repeat="brick in bricks" column-width="100">
+                          <img ng-src="{{brick.src}}" class="thumbnail toolbox-photos">
+                        </div>
                       </div>
                     </div>
                   </div>
+                </div>
             </div>
-
-            	
-            	
     		</div> 
   	</div>
+
      <footer>
         <p class="pull-right"><a href="#">Back to top</a></p>
         <p>&copy; 2015 Ashley Drake &middot; <a href="#">Contact</a> &middot; <a href="#">Terms</a></p>
       </footer>
 </div>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script>
+    $('.expandable').on('click', function() {
+      $(this).next('div').toggleClass('collapse');
+    });
+    </script>
+
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="bower_components/jquery/dist/jquery.js"></script>
+
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/jquery-bridget/jquery.bridget.js"></script>
     <script src="bower_components/get-style-property/get-style-property.js"></script>
@@ -123,11 +136,11 @@
     <script src="bower_components/imagesloaded/imagesloaded.js"></script>
     <script src="bower_components/angular-masonry/angular-masonry.js"></script>
     <script src="js/app.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>-->
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/docs.min.js"></script>
+    <!--<script src="js/docs.min.js"></script>-->
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="js/ie10-viewport-bug-workaround.js"></script>
+    <!--<script src="js/ie10-viewport-bug-workaround.js"></script>-->
   </body>
 </html>
 
