@@ -7,6 +7,11 @@
 	padding: 20px;
 }
 
+.carousel-text {
+  text-align: center;
+  padding: 30px;
+}
+
 img.slider-pics {
 	overflow: hidden;
 }
@@ -20,11 +25,29 @@ img.slider-pics {
 }
 
 .front-page {
-  background-image: url('assets/images/home/mountains-header.jpg');
-  height: 500px;
+  background-image: url('../assets/images/home/mountains-header2.jpg');
+  background-repeat: no-repeat;
+  background-position-x: 50%;
+  width: 1200;
+  height: 588px;
   margin-top: 100px;
+  padding: 50px;
 }
 
 .project {
 	padding: 20px 0;
+}
+
+.marketing {
+  padding-top: 5%;
+}
+
+footer {
+  padding-top: 40px;
+}
+
+@media (max-width: 992px) {
+  .marketing {
+    padding-top: 50%;
+  }
 }
