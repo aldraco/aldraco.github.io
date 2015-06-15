@@ -43,18 +43,7 @@
                 <li class=""><a href="projects.html">Projects</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="about.html#contact">Contact</a></li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Links I love <span class="caret"></span></a>
-                  <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">Free Code Camp</a></li>
-                    <!--<li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li class="divider"></li>
-                    <li class="dropdown-header">Nav header</li>
-                    <li><a href="#">Separated link</a></li>
-                    <li><a href="#">One more separated link</a></li>-->
-                  </ul>
-                </li>
+                <li><a href='forhire.html'>Hire me</a></li>
               </ul>
             </div>
           </div>
@@ -102,30 +91,36 @@
                 </div>
               
               	<h2 id="webapps">Web Apps/Full Stack</h2>
-              	
-              	<div class="row project">
-              		<div class="col-md-4"><img src="assets/images/home/recipebox-screenshot.png" class="img-responsive"></div>
-                  <div class="col-md-8">
-                  	<h4>RecipeBox</h4>
-                    <p><em>Node, Express, routing, OAuth/Passport</em></p>
-                    <p>I am designing the app to allow users to maintain a personal recipe box, from which they can share recipes or keep them private. Users login via local authentication or Twitter.</p>
-                    <p>This project is currently in a private repository, but will be hosted on Heroku as soon as it's done.</p>
-                  </div>
-              	</div><br>
-                <div class="row project">
-                  <div class="col-md-4"><img src="assets/images/about/meeting.jpg" class="img-responsive"></div>
-                  <div class="col-md-8">
-                    <h4>Time Coordinator App</h4>
-                    <p><em>node, Express, MongoDB/mongoosejs, Angular, Jade</em></p>
-                    <p>This app is an open source project for Free Code Camp.</p>
-                    <p>Finding availability for meetings when team members are in different time zones can be a challenge. Our app does the timezone conversion work for the user, letting everyone think in terms of their own time zone and preventing scheduling mistakes.</p>
-                    <p>I am on a team of four Free Code Camp students who are building this app. You can <a href="https://github.com/FCCWebCrafts/timeCoordinatorApp">see the repo here.</a></p>
-                  </div>
+                <div class='row project'>
+                <div class='col-md-4'><img src='assets/images/projects/pinterest.png' class='img-responsive'></div>
+                <div class='col-md-8'>
+                  <h4>Pinterest</h4>
+                  <p><em>Node/express, socket.io, Angular, design</em></p>
+                  <p>This app is a clone of Pinterest, but users instead save 'wins,' or things that are particularly amazing to their profile.</p>
+                  <p>The front page and the 'Recent Wins' page both feature a socket connection to the server; whenever another user saves a new win, they appear live on your page. The back end is also smart enough to know when you delete a win from your profile that you re-blogged from someone else that it should just delete the reference, and not the whole item.</p>
                 </div>
-                <!--<div class="row">
-                  <div class="col-md-4"><img src="http://placehold.it/300x300" class="img-responsive"></div>
-                    
-                </div>--><br>
+              	<br>
+
+                <h2 id="OSS">Open Source</h2>
+                <div class="row project">
+                  <div class="col-md-4"><a href='http://freecodecamp.com' target='blank'><img src="assets/images/projects/FCCbonfire.png" class="img-responsive"></a></div>
+                  <div class="col-md-8">
+                    <h4>Free Code Camp</h4>
+                    <p><em>node, Jade, MongoDB</em></p>
+                    <p>FreeCodeCamp is an open source, non-profit, online bootcamp for motivated individuals to learn Javascript.</p>
+                    <p>Campers who complete the requisite 800 hours of training are eligible to be assigned projects for real non-profit organizations, so they can both gain experience and give back to the community.</p>
+                    <p>While I was waiting on being assigned to a project, I made some contributions to FCC's codebase:</p>
+                    <ul>
+                      <li>MDN helper links for our algorithm practice</li>
+                      <li>A feature to easily allow campers to pair program with each other</li>
+                      <li>Various maintenance tasks (error handlers, bug fixes)</li>
+                    </ul>
+                    <p>I also enjoy the opportunity to stream frequently for FreeCodeCamp on their Twitch channel. You can watch FCC campers code, live - everything from pair programming, bug fixes, and personal projects. Find us at <a href="http://twitch.tv/freecodecamp">http://twitch.tv/freecodecamp</a>.</p>
+                  </div>
+                </div><br>
+            
+              	<hr>
+
                 <h3>Simple Brochure Sites</h3>
                 <p>
                 Some other recent projects:
@@ -149,26 +144,6 @@
                     </div>
                   </div>  
                 </div>
-
-                <h2 id="OSS">Open Source</h2>
-                <div class="row project">
-                  <div class="col-md-4"><a href='http://freecodecamp.com' target='blank'><img src="assets/images/projects/FCCbonfire.png" class="img-responsive"></a></div>
-                  <div class="col-md-8">
-                    <h4>Free Code Camp</h4>
-                    <p><em>node, Jade, MongoDB</em></p>
-                    <p>FreeCodeCamp is an open source, non-profit, online bootcamp for motivated individuals to learn Javascript.</p>
-                    <p>Campers who complete the requisite 800 hours of training are eligible to be assigned projects for real non-profit organizations, so they can both gain experience and give back to the community.</p>
-                    <p>While I was waiting on being assigned to a project, I made some contributions to FCC's codebase:</p>
-                    <ul>
-                      <li>MDN helper links for our algorithm practice</li>
-                      <li>A feature to easily allow campers to pair program with each other</li>
-                      <li>Various maintenance tasks (error handlers, bug fixes)</li>
-                    </ul>
-                    <p>I also enjoy the opportunity to stream frequently for FreeCodeCamp on their Twitch channel. You can watch FCC campers code, live - everything from pair programming, bug fixes, and personal projects. Find us at <a href="http://twitch.tv/freecodecamp">http://twitch.tv/freecodecamp</a>.</p>
-                  </div>
-                </div><br>
-            
-              	<hr>
               
               
               	<h2 id="upcoming">Upcoming Projects</h2>
@@ -184,7 +159,6 @@
               
               
               	<hr>
-              <!--<h4><a href="toolbox.html">See my favorite tools</a></h4>-->
               	<hr>
               	
               	
