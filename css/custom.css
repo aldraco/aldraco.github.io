@@ -24,6 +24,16 @@ img.slider-pics {
 	padding: 20px 0;
 }
 
+#headshot {
+  background-image: url('../assets/images/about/headshot1.jpg');
+  height: 310px;
+  width: 330px;
+  background-size: cover;
+  background-position-y: 40%;
+  float: left;
+  margin: 0 20px 20px 0;
+}
+
 .front-page {
   background-image: url('../assets/images/home/mountains-header2.jpg');
   background-repeat: no-repeat;
