@@ -17,8 +17,6 @@
 
 
     <!-- Custom styles for this template -->
-    <link href="css/carousel.css" rel="stylesheet">
-    <link href="css/journal.bootstrap.min.css" rel="stylesheet">
     <link href="css/custom.css" rel="stylesheet">
 
   </head>
@@ -40,9 +38,10 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
-                <li><a href="#work">Work</a></li>
+                <li><a href="index.html#work">Work</a></li>
                 <li><a href="fun.html">Fun</a></li>
-                <li><a href=''>Contact</a></li>
+<!--                 <li><a href="blog.html">Writing</a></li>
+ -->                <li><a href='index.html#contact'>Contact</a></li>
               </ul>
             </div>
           </div>
@@ -53,8 +52,14 @@
 
     <div class='container'>
       <div class="front-page container-fluid">
-            <h1>Grab your attention, with subtlety.</h1>
-            <h3>One simple sentence about what I do and what I like.</h3>
+            <h1>Software Engineer</h1>
+
+            <div href="#contact">
+              <ul>
+              <li>email me at a.l.drake713@gmail.com</li>
+              <li>tweet me at @al_draco</li>
+            </ul>
+            </div>
       </div>
     </div>
     <section id="resume">
@@ -62,54 +67,72 @@
         <div class="container">
             <div class="col-md-12">
               <div class="col-md-4">
-                <h2>Skills/Tools</h2>
+                <h2>Primary Skills/Tools</h2>
               </div>
               <div class="col-md-4">
+              </div>
+              <div class="col-md-4">
+              </div>
+          </div>
+            <div class="col-md-12">
+              <div class="col-md-4">
+              </div>
+              <div class="col-md-8">
                 <ul> Languages
                   <li>Python</li>
                   <li>JavaScript</li>
-                  <li>Go</li>
                 </ul>
-              </div>
-              <div class="col-md-4">
+
                 <ul>Frameworks
                   <li>Spark/Pyspark</li>
-                  <li>Storm</li>
+                  <li>Storm/Streamparse</li>
+                  <li>Kinesis Streams/Firehose</li>
                 </ul>
-              </div>
-          </div>
-          <div class="col-md-12">
-             <div class="col-md-4">
-              </div>
-              <div class="col-md-4">
+
                 <ul>Tools
                   <li>Git</li>
                   <li>AWS</li>
+                  <li>Travis</li>
                 </ul>
               </div>
-              <div class="col-md-4">
-              </div>
           </div>
-
         </div>
-
       </div>
 
     <div class='resume row' id="work" href="#work">
       <div class="container">
           <div class="row">
             <div class="container">
-                          <div class="col-md-12">
-
-              <div class="col-md-4">
-                <h2>Experience</h2>
-              </div>
-              <div class='col-md-8'>
-                <h3>Parse.ly</h3>
-                <h4>Software Engineer (2017-current)</h4>
-                <p>paragraph about the work I did</p>
+              <div class="col-md-12">
+                <div class="col-md-4">
+                  <h2>Experience</h2>
+                </div>
+                <div class='col-md-8'>
+                </div>
               </div>
             </div>
+          </div>
+          <div class="row">
+            <div class="container">
+              <div class="col-md-12">
+                <div class="col-md-4">
+                  <h2></h2>
+                </div>
+                <div class='col-md-8'>
+                  <h3 class='employer'>Parse.ly<!-- <img class="bubblehead thumbnail pull-right" style="{height: 30px; width: 30px;}"src="http://s3.amazonaws.com/parsely_static/marketing/parsely-logo-email.png"> --></h3>
+                  <span><a href="http://parse.ly">http://parse.ly</a></span>
+                  <div class='job'>
+                    <h4 class='title'>Software Engineer <span class='pull-right'>2017-current</span></h4>
+                    <span class='technologies'>Python, JavaScript, Redis, Elasticsearch, Spark, Storm, AWS</span>
+                    <p>Focused on backend work, I strive for versatility within our stack, and enjoy working on internal tooling to make our whole team more productive.</p>
+                    <ul>
+                      <li>Designed and built persistence layer for an upcoming new feature</li>
+                      <li>Built and maintained Spark jobs for various parts of our platform</li>
+                      <li>Performed upgrades and maintenance for Data Pipeline product</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <!-- this row can repeat -->
@@ -119,8 +142,18 @@
                 <div class='col-md-4'>
                 </div>
                 <div class='col-md-8'>
-                  <h4>Success Engineer (2015-2017)</h4>
-                  <p>paragraph about the work I did</p>
+                  <div class='job'>
+                  <h4 class='title'>Success Engineer <span class='pull-right'>2015-2017</span></h4>
+                  <span class='technologies'>Python, JavaScript, Spark</span>
+                  <p>Success Engineers bridge the gap between customers and code. Communication and debugging skills are useful to assist customers with their integrations with our product, as well as connecting the business and engineering teams within the company.</p>
+                    <ul>
+                      <li>Prototyped internal customer usage data tools to predict and prevent churn; successfully advocated for usage data's place in our workflow</li>
+                      <li>Managed technical aspects of customer relationships, including: data discrepancy analysis, custom integration support, answering technical questions in sales/customer calls, debugging</li>
+                      <li>Built and scripted internal tools to streamline otherwise repetitive internal admin tasks</li>
+                      <li>Assisted onboarding new team members</li>
+
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
@@ -132,9 +165,31 @@
                 <div class='col-md-4'>
                 </div>
                 <div class='col-md-8'>
-                  <h3>Self</h3>
-                  <h4>Freelance/Contract(2015)</h4>
-                  <p>While learning to code, I took a few smaller projects for others.</p>
+                  <h3 class='employer'>Self<img class="bubblehead thumbnail pull-right" src="assets/images/home/headshot-amsterdam.jpg"></h3>
+                  <span><a href='http://aldraco.github.io'>homepage</a></span>
+                  <div class='job'>
+                    <h4 class='title'>Freelance/Contract <span class='pull-right'>2015</span></h4>
+                    <span>Wordpress, HTML/CSS/JS, Angular</span>
+                    <p>While learning to code, I took on a few smaller projects for others.</p>
+                    <div class='col-md-10'>
+                                            <h4>East Brookfield Church<span class='pull-right'>Winter '15</span></h4>
+                      <p><a href='http://eastbrookfieldccvt.com'>http://eastbrookfieldccvt.com</a></p>
+                      <img src='assets/images/projects/east-brookfield-cover.png'
+                           style="{height: 50px; width: 75px;}"
+                           class="pull-left project thumbnail">
+
+                     <p>The church needed a simple website for service times and directions. I focused on making the page load quickly (Vermont's cellular data coverage is not great) and a clean, simple design to focus on the content.</p>
+                    </div>
+                    <div class='col-md-10'>
+                    <h4>AC Jones<span class='pull-right'>Summer '15</span></h4>
+
+                      <img src='assets/images/projects/amandajones.png'
+                           style="{height: 50px; width: 75px;}"
+                           class="pull-left project thumbnail">
+                      <p>Amanda Jones, a country singer, needed a basic website to get her started on her career. I used Facebook's API to give her an easy-to-manage Event list, and built a simple media player and Wordpress integration.</p>
+                      <p>(She has since <a href='https://musicrow.com/2017/05/industry-ink-warnerchappell-ctm-writers-ink-t-j-martell-foundation-ssm-nashville/'>signed with a label</a>, and her online presence is run through a music management company -- major congrats Amanda!)</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -146,44 +201,29 @@
       <div class="container">
           <div class="row">
             <div class="container">
-                          <div class="col-md-12">
-
-              <div class="col-md-4">
-                <h2>Projects/Open Source</h2>
-              </div>
-              <div class='col-md-8'>
-                <h4>Exercism</h4>
-                <p>paragraph about the work I did</p>
-              </div>
-            </div>
+              <div class="col-md-12">
+                <div class="col-md-4">
+                  <h2>Community &amp; Open Source</h2>
+                </div>
+                <div class='col-md-8'>
+                </div>
+             </div>
             </div>
           </div>
-          <!-- this row can repeat -->
           <div class="row">
             <div class="container">
-                          <div class="col-md-12">
+              <div class="col-md-12">
+                <div class='col-md-4'>
+                </div>
+                <div class='col-md-8'>
 
-              <div class='col-md-4'>
-              </div>
-              <div class='col-md-8'>
-                <h4>FreeCodeCamp</h4>
-                <p>paragraph about the work I did</p>
-              </div>
-            </div>
-            </div>
-          </div>
-          <!-- end repeating row -->
-          <div class="row">
-            <div class="container">
-                          <div class="col-md-12">
+                  <a href='http://github.com/aldraco/logu'><img src='assets/images/projects/GitHub-Mark-64px.png'
+                           class='bubblehead pull-right'></a>
+                  <h4>Logu</h4>
 
-              <div class='col-md-4'>
+                  <p>Logu is a tool that uploads historical log data with Graphite, which is more commonly used as a realtime system. Bulk uploads aren't directly supported in popular client libraries like statsd, so I wrote a tool to make that easier.</p>
+                </div>
               </div>
-              <div class='col-md-8'>
-                <h4>Logu</h4>
-                <p>paragraph about the work I did</p>
-              </div>
-            </div>
             </div>
           </div>
       </div>
@@ -196,24 +236,6 @@
 
 
     <div class="container marketing">
-
-      <!-- Three columns of text below the carousel -->
-      <div class="row">
-        <section>
-          <div class='col-md-4'>
-            <img class='img-circle' src="assets/images/home/Octocat.jpg" style="width: 140px; height: 120px;">
-            <h4></h4>
-          </div>
-          <div class='col-md-4'>
-            <img class='img-circle' src="assets/images/home/Octocat.jpg" style="width: 140px; height: 120px;">
-            <h4></h4>
-          </div>
-          <div class='col-md-4'>
-            <img class='img-circle' src="assets/images/home/Octocat.jpg" style="width: 140px; height: 120px;">
-            <h4></h4>
-          </div>
-        </section>
-      </div><!-- /.row -->
       <!-- FOOTER -->
       <footer>
         <!--<p class="pull-right"><a href="#">Back to top</a></p>-->
