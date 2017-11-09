@@ -9,6 +9,10 @@ body {
   margin-bottom: 0;
 }
 
+.blog-post {
+  padding: 30px;
+}
+
 p {
   padding: 20px 0;
 }

@@ -16,14 +16,12 @@
     <link href="css/bootstrap-theme.min.css" rel="stylesheet">
 
 
-    <!-- Custom styles for this template -->
-    <link href="css/carousel.css" rel="stylesheet">
-    <link href="css/journal.bootstrap.min.css" rel="stylesheet">
     <link href="css/custom.css" rel="stylesheet">
+    <script src="assets/posts/posts.js"></script>
+    <script src="js/blog.js"></script>
 
   </head>
-<!-- NAVBAR
-================================================== -->
+<!-- NAVBAR ================================================== -->
   <body>
     <div class="navbar-wrapper">
       <div class="container">
@@ -51,10 +49,30 @@
       </div>
     </div>
 
+    <div class='row'>
+      <div class='container'>
+        <div class="front-page container-fluid">
+              <h1>Writing</h1>
+        </div>
+      </div>
+    </div>
 
-    <div class='container'>
-      <div class="front-page container-fluid">
-            <h1>Writing</h1>
+    <div class='row'>
+      <div class='container'>
+        <div class='col-md-12'>
+          <article class='blog-post'>
+            <h3>Git Topics: .git and filesystem issues</h3>
+            <span class="pubDate">November 7, 2017</span>
+            <p>Recently at work, I ran into one of those once-in-a-blue-moon git issues that generally end up being solved with creative Googling and git magic. I wanted to understand what went wrong, so I took a deeper dive into git's internals and learned something useful.</p>
+            <pre>
+              <code>
+                >> git pull origin master
+                [nothing happens]
+              </code>
+            </pre>
+            <p>Git uses the filesystem to organize references to objects that it wants to track. What this means is that if you use filesystem-like slashes in a branch name, git will use that path to store the reference on your system. This isn't a problem unless you try to have branch names that aren't at consistent depths.</p>
+          </article>
+        </div>
       </div>
     </div>
 
