@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ashley Drake</title>
+    <link>https://aldra.co/</link>
+    <description>Recent content on Ashley Drake</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 27 Nov 2017 16:24:52 -0700</lastBuildDate>
+    
+	<atom:link href="https://aldra.co/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Git Folder Structure and Naming Conventions</title>
+      <link>https://aldra.co/posts/git_naming_and_folders/</link>
+      <pubDate>Mon, 27 Nov 2017 16:24:52 -0700</pubDate>
+      
+      <guid>https://aldra.co/posts/git_naming_and_folders/</guid>
+      <description>Recently at work, I ran into one of those once-in-a-while git issues that generally end up being solved with creative Googling and git magic. This time, though, I wanted to understand a little more about how git works.
+The problem I was developing a new feature with a colleague, so we had two branches going that we were rebasing against each other as we went.
+feature-name/my-branch feature-name/his-branch At some point, we decided it was time to merge our branches into one consolidated effort.</description>
+    </item>
+    
+    <item>
+      <title>Resume | Ashley Drake</title>
+      <link>https://aldra.co/resume/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://aldra.co/resume/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
