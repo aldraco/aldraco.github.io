@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>sewing on Ashley Drake</title>
+    <link>https://aldra.co/tags/sewing/</link>
+    <description>Recent content in sewing on Ashley Drake</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 02 Dec 2019 21:34:00 -0700</lastBuildDate>
+    
+	<atom:link href="https://aldra.co/tags/sewing/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Dec 2</title>
+      <link>https://aldra.co/updates/dec042019/</link>
+      <pubDate>Mon, 02 Dec 2019 21:34:00 -0700</pubDate>
+      
+      <guid>https://aldra.co/updates/dec042019/</guid>
+      <description>Advent of Code: trying to solve all the puzzles this year, in multiple languages if I can. Unicorn Project: recently finished and working on a review Bathrobe: my preschooler wants one, so I&#39;m sewing one. Sabbatical: mostly enjoying time to bake, exercise, and relax. Half Marathon: I&#39;m training for a half marathon in January, and have been reading a lot about heart rate training and altitude (I live at 6k+ ft above sea level).</description>
+    </item>
+    
+  </channel>
+</rss>
