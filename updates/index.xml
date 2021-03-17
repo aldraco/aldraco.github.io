@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Now on Ashley Drake</title>
+    <link>https://aldra.co/updates/</link>
+    <description>Recent content in Now on Ashley Drake</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 01 Mar 2020 21:27:00 -0700</lastBuildDate><atom:link href="https://aldra.co/updates/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mar 1</title>
+      <link>https://aldra.co/updates/mar012020/</link>
+      <pubDate>Sun, 01 Mar 2020 21:27:00 -0700</pubDate>
+      
+      <guid>https://aldra.co/updates/mar012020/</guid>
+      <description>I&amp;rsquo;ve recently signed on to help out more with Exercism, by becoming a maintainer for the Python track. I&amp;rsquo;m still figuring out how to work on such a large project; this past weekend I managed to send an email &amp;amp; Github ping that should have gone to my subteam of 3-5 Python maintainers, to the whole (150 people) group of maintainers; I messed something up trying to rebase from master and it was gross.</description>
+    </item>
+    
+    <item>
+      <title>Dec 2</title>
+      <link>https://aldra.co/updates/dec042019/</link>
+      <pubDate>Mon, 02 Dec 2019 21:34:00 -0700</pubDate>
+      
+      <guid>https://aldra.co/updates/dec042019/</guid>
+      <description>Advent of Code: trying to solve all the puzzles this year, in multiple languages if I can. Unicorn Project: recently finished and working on a review (sequel to Phoenix Project) Bathrobe: my preschooler wants one, so I&amp;rsquo;m sewing one. Sabbatical: mostly enjoying time to bake, exercise, and relax. Half Marathon: I&amp;rsquo;m training for a half marathon in January, and have been reading a lot about heart rate training and altitude (I live at 6k+ ft above sea level).</description>
+    </item>
+    
+  </channel>
+</rss>

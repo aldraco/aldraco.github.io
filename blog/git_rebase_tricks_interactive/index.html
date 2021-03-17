@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Git Rebase Tricks: Rebase Interactive</title>
+   
+
+  <link rel="stylesheet" href="https://aldra.co/css/normalize.css">
+  <link rel="stylesheet" href="https://aldra.co/css/skeleton.css">
+  <link rel="stylesheet" href="https://aldra.co/css/style.css">
+  <link rel="stylesheet" href="https://aldra.co/fontawesome-free-5.11.2-web/css/all.min.css">
+  
+  
+<script type="application/ld+json">
+    
+        {
+            "@context" : "http://schema.org",
+            "@type": "BlogPosting",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https:\/\/aldra.co"
+            },
+            "articleSection": "posts",
+            "name": "Git Rebase Tricks: Rebase Interactive",
+            "headline": "Git Rebase Tricks: Rebase Interactive",
+            "description": "A quick how-to guide for keeping your git history clean, readable, and organized.",
+            "inLanguage": "en-US",
+            "author": "Ashley Drake",
+            "creator": "Ashley Drake",
+            "publisher": "Ashley Drake",
+            "accountablePerson": "Ashley Drake",
+            "copyrightHolder": "Ashley Drake",
+            "copyrightYear": "2020",
+            "datePublished": "2020-06-19 10:04:52 -0700 -0700",
+            "dateModified": "2020-06-19 10:04:52 -0700 -0700",
+            "url": "https:\/\/aldra.co\/blog\/git_rebase_tricks_interactive\/",
+            "wordCount": "1327",
+            "keywords": ["git", "how to", "Blog"]
+        }
+    
+
+</script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="columns three">
+      <header>
+	<a href="https://aldra.co/"><img class="bubblehead me" src="https://aldra.co/headshot-amsterdam.jpg"></a>
+	<h1><a href="https://aldra.co/">Ashley Drake</a></h1>
+	<h2>Software Engineer</h2>
+	<p>a.l.drake713@gmail.com</p>
+	<p>
+		<a href="https://twitter.com/al_draco"><i class="fab fa-twitter"></i>Twitter</a>
+		<a href="https://github.com/aldraco"><i class="fab fa-github"></i>Github</a>
+
+	</p>
+	<ul>
+		<li><a href="https://aldra.co/resume">Resume</a></li>
+		<li><a href="https://aldra.co/posts">Blog</a></li>
+		<li><a href="https://aldra.co/updates">Now</a></li>
+
+	</ul>
+
+</header>
+
+    </div>
+    <div class="columns nine">
+      
+	<main>
+		<article>
+			<h1>Git Rebase Tricks: Rebase Interactive</h1>
+			<time>19.06.2020 10:04</time>
+			<div>
+				<p>I have been using the <code>git rebase</code> command heavily lately, and thought it might be good to write a quick tips and tricks guide about it. I have found it incredibly useful for keeping my git history clean, organizing my thoughts about what I am writing and why, and grouping changes together as logical groups.</p>
+<h2 id="why-would-i-want-to-use-this">Why would I want to use this?</h2>
+<p>First, it might be useful to motivate why this tool is helpful.</p>
+<p>Say you have a commit history that looks like this:</p>
+<pre><code>commit e3e96d237c2fb4f7a5fdgf97023652ae91697bde
+Author: Ashley Drake &lt;ashley@aldra.co&gt;
+Date:   Fri Jan 17 14:45:56 2020 +0000
+
+    Add tests for feature Y.
+
+commit 1ded87897327cdjke2743829b199a6eea1e64aeea0
+Author: Ashley Drake &lt;ashley@aldra.co&gt;
+Date:   Thu Jan 16 21:17:26 2020 +0100
+
+    Implement feature X.
+
+commit 17b1c8kjlk648b1ba890afjklddf71b93f9bfb80d4
+Author: Ashley Drake &lt;ashley@aldra.co&gt;
+Date:   Thu Jan 16 07:04:56 2020 -0800
+
+    Write tests for feature X.
+
+
+</code></pre><p>And then, you realize that you need to update some of your tests to handle a new edge case you discovered while developing feature Y. You fix it, and make a new commit.</p>
+<pre><code>commit 17b1cjkljsdk648b1ba780afjlkjdf71b93f9bfb390d4
+Author: Ashley Drake &lt;ashley@aldra.co&gt;
+Date:   Fri Jan 17 16:23:08 2020 -0800
+
+    Fix tests for feature X to add new edge case.
+</code></pre><p>However, this means the &ldquo;logical change&rdquo; of &ldquo;adding a new test for X&rdquo; is now split across 2 separate, non-consecutive commits. If someone tries to revert the first commit, this is what happens:</p>
+<pre><code>you@your-pc ~/development/oss/project/tests $ git revert 17b1c8kjlk648b1ba890afjklddf71b93f9bfb80d4
+error: could not revert 17b1c8... Add test.
+hint: after resolving the conflicts, mark the corrected paths
+hint: with 'git add &lt;paths&gt;' or 'git rm &lt;paths&gt;'
+hint: and commit the result with 'git commit'
+
+</code></pre><p>And then they (or you) have to comb back through commits to find the other one to revert first. You can imagine what this looks like if you&rsquo;re trying to revert a change to make a hotfix, and the clock is ticking.</p>
+<p><code>git rebase</code> allows you rewrite history (doesn&rsquo;t that sound nice!), and clean up your changes, so you can have clean histories like this, and easily revert what you need:</p>
+<pre><code>aabbcc Write tests for feature Y.
+ddeecc Implement feature X.
+ffddss Write tests for feature X.
+</code></pre><h2 id="what-is-rebase">What is rebase?</h2>
+<p>Rebase, in short, is an alternative to <code>git merge</code>, which merges 3 items together: the one common ancestor commit of the 2 branches being merged (where in history they diverge from one another) and the HEAD of each branch, respectively. A rebase, however, attempts to replay commits from one branch on top of the other - usually, it would replay commits from a feature branch onto a <code>master</code> or <code>main</code> branch. It will rewrite history. [1]</p>
+<p>For example, if you branched your development branch from <code>master</code> at commit X, and made commits Y and Z in the feature branch, while in the meantime <code>master</code> progresses with new commits A and B; rebasing your development branch on top of master would apply your commits Y and Z <em>after</em> commits A and B, even if you committed those changes previous to A and B in time. It rewrites history, as if you had started your branch at commit B, instead of commit X.</p>
+<p>However, the tricks I mention below are ones that you can use within one branch, i.e. rebasing a branch against itself. Since the rebase command just replays commits, you can essentially tell <code>git</code>, &ldquo;I&rsquo;d like to rewind to 10 commits ago, and change a few things.&rdquo;</p>
+<p>[1]<a href="https://www.git-tower.com/learn/git/ebook/en/desktop-gui/advanced-topics/rebase#start">Helpful summary of rebase</a></p>
+<h3 id="combining-and-reordering">Combining and Reordering</h3>
+<p>You can combine 2 commits using the <code>squash</code> command. In our example, the commits we want to combine aren&rsquo;t next to each other - but that is no problem.</p>
+<p>First, you want to re-order the commits, so that they are next to each other. This is done in the rebase editor, by moving the commit lines so that they are in the order you want. Pay attention, as the order goes from top to bottom.</p>
+<p>Before:</p>
+<pre><code>1 pick 69e9993 Implement feature Y.
+2 pick 2d96c71 Implement Feature Z.
+3 pick 7dad83c Bugfix for feature Y.
+</code></pre><p>After:</p>
+<pre><code>1 pick 69e9993 Implement feature Y.
+3 pick 7dad83c Bugfix for feature Y.
+2 pick 2d96c71 Implement Feature Z.
+</code></pre><p>Then, you can either <code>squash</code> or <code>fixup</code> the more recent (lower) commit. Squash will retain the comments from each commit message; <code>fixup</code> will treat the more recent of the commits as a &ldquo;bugfix&rdquo; to the previous one, and ignore the commit message. Either way, the more recent commit is &ldquo;smooshed&rdquo; (yes, that is a technical term) into the one prior to it. The difference is how the commit messages are handled.</p>
+<p>Here, I chose fixup, because I don&rsquo;t really care about retaining the &ldquo;bugfix&rdquo; commit message.</p>
+<pre><code>1 pick 69e9993 Implement feature Y.
+3 fixup 7dad83c Bugfix for feature Y.
+2 pick 2d96c71 Implement Feature Z.
+</code></pre><p>This is a great tool if your commit history is like mine, and has lots of &ldquo;bugfix &hellip; another bugfix&hellip; Fixing the bugfix&hellip;&rdquo; type commits in it.</p>
+<h3 id="editing-a-commit-andor-commit-message">Editing a Commit and/or Commit Message</h3>
+<p>If all you want to do is edit the commit message, <code>reword</code> is your friend. It&rsquo;s like using <code>git commit --amend</code> without any code changes for multiple commits at the same time. Here, we fix a few spelling errors.</p>
+<pre><code>1 reword 69e9993 Commit message with a msipelling
+2 pick 2d96c71 Bugfix.
+3 reword 7dad83c Imlpement feature Y.
+4 pick 27b1c8a Add new tests.
+5 pick 78lkjsd Bugfix for feature Y.
+</code></pre><p>What happens if you just want to make a small change in the commit itself, without having to (a) make a new commit, (b) reorder it, and (c) squash/fixup? You can tell <code>git</code>, &ldquo;stop! I just need to fix a few things,&rdquo; by using the <code>edit</code> command. The effect would be that <code>git</code> starts to apply commits &hellip; and when it gets to the commit marked with <code>edit</code> &hellip; it will stop, allowing you to make changes to the changeset represented by that commit.</p>
+<p>Here, imagine we found a bug in feature A that is very simple to fix, maybe a misspelling. Instead of committing the bugfix separately and then going back to move it, <code>squash</code> it, etc., we just edit the commit interactively.</p>
+<pre><code>1 pick 69e9993 Implement feature A.
+2 edit 7dad83c Implement feature Y.
+3 pick 27b1c8a Add new tests for feature Y.
+</code></pre><h3 id="deleting-commits-altogether">Deleting commits altogether</h3>
+<p>Added your AWS secrets to your repo? Committed your <code>node_modules</code> folder by mistake? It&rsquo;s okay! <code>git rebase</code> rewrites history so that even searching through old versions of the code, nobody can ever find the thing you deleted (unless they somehow managed to clone your repo at just the right time, or have it locally). Just removing the line altogehter, or marking the commit with <code>drop</code>, will get rid of it forever. (Depending on the situation, using <code>edit</code> might also be more effective.)</p>
+<h2 id="how-might-this-change-your-development-strategy">How might this change your development strategy?</h2>
+<p>For one, you don&rsquo;t need to be afraid of trying to undo mistakes. You can present a clean git history in a PR, which is also really handy when requesting reviews - if you can organize your commits in a logical order that even allows you to separate a range of commits and ask for feedback on smaller pieces, this is really handy.</p>
+<p>I&rsquo;m also more likely to work in one area at a time, make smaller commits that encompass one or two files at a time, knowing I can combine them in more representative ways later on. My workflow is to keep commits small, push to remote, and if needed, after a review, rebase and combine commits.</p>
+<p>It also presents your work in a clean, professional manner. If you work in open source, or are asked to do a code project for a job application, it&rsquo;s a nice touch to present a clean series of commits to the reviewer.</p>
+<p>There are a few other options available as well, but these are the tools I use frequently, and have gotten me out of a bind more than once! As always, <a href="https://git-scm.com/docs/git-rebase#_interactive_mode">git-scm</a> has your back if you need more information.</p>
+
+			</div>
+			
+			<div>
+				
+			</div>
+		</article>
+	</main>
+
+      <div>
+  <footer>
+    <p class="pull-right"><a href="#">Back to top</a></p>
+    <p>&copy; 2021 Ashley Drake</p>
+  </footer>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script id="parsely-cfg" src="//cdn.parsely.com/keys/aldra.co/p.js"></script>
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-64870233-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    </div>
+  </div>
+</body>
+
+</html>

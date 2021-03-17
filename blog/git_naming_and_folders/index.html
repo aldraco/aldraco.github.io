@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Git Folder Structure and Naming Conventions</title>
+   
+
+  <link rel="stylesheet" href="https://aldra.co/css/normalize.css">
+  <link rel="stylesheet" href="https://aldra.co/css/skeleton.css">
+  <link rel="stylesheet" href="https://aldra.co/css/style.css">
+  <link rel="stylesheet" href="https://aldra.co/fontawesome-free-5.11.2-web/css/all.min.css">
+  
+  
+<script type="application/ld+json">
+    
+        {
+            "@context" : "http://schema.org",
+            "@type": "BlogPosting",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https:\/\/aldra.co"
+            },
+            "articleSection": "posts",
+            "name": "Git Folder Structure and Naming Conventions",
+            "headline": "Git Folder Structure and Naming Conventions",
+            "description": "Best practices for git branch naming, and how to fix branches broken by naming issues.",
+            "inLanguage": "en-US",
+            "author": "Ashley Drake",
+            "creator": "Ashley Drake",
+            "publisher": "Ashley Drake",
+            "accountablePerson": "Ashley Drake",
+            "copyrightHolder": "Ashley Drake",
+            "copyrightYear": "2017",
+            "datePublished": "2017-11-27 16:24:52 -0700 MST",
+            "dateModified": "2017-11-27 16:24:52 -0700 MST",
+            "url": "https:\/\/aldra.co\/blog\/git_naming_and_folders\/",
+            "wordCount": "630",
+            "keywords": ["git", "best-practices", "how to", "Blog"]
+        }
+    
+
+</script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="columns three">
+      <header>
+	<a href="https://aldra.co/"><img class="bubblehead me" src="https://aldra.co/headshot-amsterdam.jpg"></a>
+	<h1><a href="https://aldra.co/">Ashley Drake</a></h1>
+	<h2>Software Engineer</h2>
+	<p>a.l.drake713@gmail.com</p>
+	<p>
+		<a href="https://twitter.com/al_draco"><i class="fab fa-twitter"></i>Twitter</a>
+		<a href="https://github.com/aldraco"><i class="fab fa-github"></i>Github</a>
+
+	</p>
+	<ul>
+		<li><a href="https://aldra.co/resume">Resume</a></li>
+		<li><a href="https://aldra.co/posts">Blog</a></li>
+		<li><a href="https://aldra.co/updates">Now</a></li>
+
+	</ul>
+
+</header>
+
+    </div>
+    <div class="columns nine">
+      
+	<main>
+		<article>
+			<h1>Git Folder Structure and Naming Conventions</h1>
+			<time>27.11.2017 16:24</time>
+			<div>
+				<p>Recently at work, I ran into one of those once-in-a-while git issues that generally end up being solved with creative Googling and git magic. This time, though, I wanted to understand a little more about how git works.</p>
+<h3 id="the-problem">The problem</h3>
+<p>I was developing a new feature with a colleague, so we had two branches going that we were rebasing against each other as we went.</p>
+<pre><code>feature-name/my-branch
+feature-name/his-branch
+</code></pre><p>At some point, we decided it was time to merge our branches into one consolidated effort. At the time, it made sense to me to name the new branch simply <code>feature-name</code>. I attempted to deploy this branch but git on the target machine started throwing errors, saying that</p>
+<pre><code>&gt;&gt;&gt; error: 'refs/remotes/origin/feature-name/my-branch' exists; cannot create 'refs/remotes/origin/feature-name'
+&gt;&gt;&gt; error: some local refs could not be updated; try running git remote prune origin' to remove any old, conflicting branches
+</code></pre><p>Fortunately, git tells you the solution.</p>
+<h3 id="solutions">Solution(s)</h3>
+<ul>
+<li>run <code>git prune</code> if you can</li>
+</ul>
+<p>Unfortunately, I didn’t have permission to run git while ssh&rsquo;ed on the target server. I did, however, have permission to edit files, which is where learning a little more about how git works came in handy.</p>
+<p>on server:</p>
+<ul>
+<li>find <code>$PROJECT_DIR/.git/refs/old-branch-name</code> and delete it</li>
+<li>find <code>$PROJECT_DIR/.git/refs/packed-refs</code>, delete any references here to the old (short name) branch</li>
+</ul>
+<p>locally:</p>
+<ul>
+<li><code>git checkout -b new branch name</code> <strong>which has the same number of path segments as the branch name with the most segments</strong> (more below)</li>
+<li>try deploying/checking out the new branch</li>
+</ul>
+<p>All you&rsquo;re doing is manually scrubbing references to the offending branch, instead of having <code>git prune</code> do it for you.</p>
+<p>The real &ldquo;magic&rdquo; behind git turns out to simply be git commit hashes. Each one references a snapshot of your working directory at any given time. A commit history is a series of snapshots, and references to a HEAD of a branch or a remote, for example, is really just a reference to a git commit hash.</p>
+<p>Try it yourself and see that running the following shows the last commit hash in your master branch. Start at your project directory&rsquo;s root:</p>
+<pre><code>$ cat .git/refs/heads/master
+</code></pre><p>Now, if you run this instead while the master branch is checked out, you&rsquo;ll see a reference to the file above:</p>
+<pre><code>$ cat .git/HEAD
+</code></pre><p>Each branch, remote, or tag is just a point in time in the project&rsquo;s history, and can be described using git hashes. References, or refs, to these hashes are organized in the <code>.git</code> folder by branch name.</p>
+<h3 id="preventative-measures">Preventative measures</h3>
+<ul>
+<li>give branch names within a project the same depth of path segments.</li>
+</ul>
+<p>The root of the issue was the <strong>depth</strong> of my branch name. Git lets you name branches like files - including backslashes. Logical conventions for a project with several active branches might be:</p>
+<pre><code>fix/feature-being-fixed
+feature/new-feature-name
+hotfix/thing-that-broke
+</code></pre><p>What this means is that if you have created a file already at <code>$PROJECT/.git/refs/heads/feature/my-branch</code>, then <code>feature</code> is now a folder. Since you can’t create a file at a location that is already a folder, trying to create a new branch named feature results in an attempt to create a file at <code>$PROJECT/.git/refs/heads/feature</code> — but that’s already a directory. Oops!</p>
+<p>If you’re set on using the /feature/ path segment, you can always name it <code>feature/main</code> or <code>feature/github_username</code> instead.</p>
+<p>What is <strong>packed-refs</strong>? The packed-refs file acts somewhat like a super directory, and allows for saving space in some large projects. (In my case, deleting the regular ref wasn&rsquo;t enough since git also looks here.)</p>
+<p>Run <code>git pack-refs --all</code> to create this file, which will delete the default ref files in favor of this super-reference. Subsequent ref updates are stored normally, meaning branches that aren&rsquo;t updated often don&rsquo;t need to take up space. This can be handy on a project with many contributors, branches, or tags/versions. More <a href="https://git-scm.com/docs/git-pack-refs">here</a>.</p>
+<p>Hope this helps someone!</p>
+<p>helpful online book: <a href="https://git-scm.com">https://git-scm.com</a></p>
+
+			</div>
+			
+			<div>
+				
+			</div>
+		</article>
+	</main>
+
+      <div>
+  <footer>
+    <p class="pull-right"><a href="#">Back to top</a></p>
+    <p>&copy; 2021 Ashley Drake</p>
+  </footer>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script id="parsely-cfg" src="//cdn.parsely.com/keys/aldra.co/p.js"></script>
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-64870233-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    </div>
+  </div>
+</body>
+
+</html>

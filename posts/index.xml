@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Ashley Drake</title>
+    <link>https://aldra.co/posts/</link>
+    <description>Recent content in Posts on Ashley Drake</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 19 Jun 2020 10:04:52 -0700</lastBuildDate><atom:link href="https://aldra.co/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Git Rebase Tricks: Rebase Interactive</title>
+      <link>https://aldra.co/blog/git_rebase_tricks_interactive/</link>
+      <pubDate>Fri, 19 Jun 2020 10:04:52 -0700</pubDate>
+      
+      <guid>https://aldra.co/blog/git_rebase_tricks_interactive/</guid>
+      <description>I have been using the git rebase command heavily lately, and thought it might be good to write a quick tips and tricks guide about it. I have found it incredibly useful for keeping my git history clean, organizing my thoughts about what I am writing and why, and grouping changes together as logical groups.
+Why would I want to use this? First, it might be useful to motivate why this tool is helpful.</description>
+    </item>
+    
+    <item>
+      <title>Git Folder Structure and Naming Conventions</title>
+      <link>https://aldra.co/blog/git_naming_and_folders/</link>
+      <pubDate>Mon, 27 Nov 2017 16:24:52 -0700</pubDate>
+      
+      <guid>https://aldra.co/blog/git_naming_and_folders/</guid>
+      <description>Recently at work, I ran into one of those once-in-a-while git issues that generally end up being solved with creative Googling and git magic. This time, though, I wanted to understand a little more about how git works.
+The problem I was developing a new feature with a colleague, so we had two branches going that we were rebasing against each other as we went.
+feature-name/my-branch feature-name/his-branch At some point, we decided it was time to merge our branches into one consolidated effort.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://aldra.co/blog/python-iter-iterator-iterables/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://aldra.co/blog/python-iter-iterator-iterables/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

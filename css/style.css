@@ -1,0 +1,113 @@
+.container {
+  margin-top: 40px;
+}
+
+h1 {
+  color: #0066AA;
+  font-size: 5.0rem;
+}
+
+h2 {
+  color: #0092BD;
+  font-size: 3.7rem;
+  margin-top: 40px;
+}
+
+h3 {
+  color: slategray;
+  font-size:2.8rem;
+  margin-top: 30px;
+}
+
+h4 {
+  font-size: 2.4rem;
+}
+
+header > h2 {
+  margin-top: 20px;
+}
+header > p {
+  margin-bottom: 10px
+}
+header h1 > a {
+  color: #0066AA;
+}
+
+blockquote > p {
+  border-left: 0.2em solid slategray;
+  padding-left: 16px;
+}
+
+a {
+  text-decoration: none;
+}
+a:hover {
+  color: #67A3CC;
+}
+
+.pubDate {
+  color: #0a4c86;
+  font-weight: 400;
+}
+
+.bubblehead {
+	width: 65px;
+  height: 65px;
+	border-radius: 50%;
+  margin-bottom: 0;
+}
+
+.me {
+  width: 125px;
+  height: 125px;
+}
+
+i.fab {
+  margin-right: 5px;
+  margin-left: 3px;
+}
+
+.resume .technologies {
+  font-style: italic;
+  margin: 0 10px 0 0;
+  color: gray;
+}
+
+.project {
+  height: 120px;
+  margin-right: 75px;
+}
+
+.thumbnail {
+  margin-right: 10px;
+  margin-bottom: 24px;
+  width: 170px;
+}
+
+ul#skills {
+  padding-left: 0;
+  list-style: none;
+  margin-bottom: 0.5rem;
+}
+
+#skills li {
+  margin: 5px 0 7px 7px;
+  display: inline;
+}
+
+#skills > span {
+  font-weight: bold;
+}
+
+section li {
+  margin: 15px;
+}
+
+header li {
+  list-style: none;
+  font-weight: bolder;
+}
+
+footer {
+  padding-top: 40px;
+}
