@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Handing Code off between machines</title>
+   
+
+  <link rel="stylesheet" href="https://aldra.co/css/normalize.css">
+  <link rel="stylesheet" href="https://aldra.co/css/skeleton.css">
+  <link rel="stylesheet" href="https://aldra.co/css/style.css">
+  <link rel="stylesheet" href="https://aldra.co/fontawesome-free-5.11.2-web/css/all.min.css">
+  
+  
+<script type="application/ld+json">
+    
+        {
+            "@context" : "http://schema.org",
+            "@type": "BlogPosting",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https:\/\/aldra.co"
+            },
+            "articleSection": "posts",
+            "name": "Handing Code off between machines",
+            "headline": "Handing Code off between machines",
+            "description": "How to set up a git remote on another laptop (and why you might want to in the first place).",
+            "inLanguage": "en-US",
+            "author": "Ashley Drake",
+            "creator": "Ashley Drake",
+            "publisher": "Ashley Drake",
+            "accountablePerson": "Ashley Drake",
+            "copyrightHolder": "Ashley Drake",
+            "copyrightYear": "2020",
+            "datePublished": "2020-10-20 16:24:52 -0700 -0700",
+            "dateModified": "2020-10-20 16:24:52 -0700 -0700",
+            "url": "https:\/\/aldra.co\/blog\/git_handoff_new_computer\/",
+            "wordCount": "312",
+            "keywords": ["git", "Blog"]
+        }
+    
+
+</script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="columns three">
+      <header>
+	<a href="https://aldra.co/"><img class="bubblehead me" src="https://aldra.co/headshot-amsterdam.jpg"></a>
+	<h1><a href="https://aldra.co/">Ashley Drake</a></h1>
+	<h2>Software Engineer</h2>
+	<p>a.l.drake713@gmail.com</p>
+	<p>
+		<a href="https://twitter.com/al_draco"><i class="fab fa-twitter"></i>Twitter</a>
+		<a href="https://github.com/aldraco"><i class="fab fa-github"></i>Github</a>
+
+	</p>
+	<ul>
+		<li><a href="https://aldra.co/resume">Resume</a></li>
+		<li><a href="https://aldra.co/posts">Blog</a></li>
+		<li><a href="https://aldra.co/updates">Now</a></li>
+
+	</ul>
+
+</header>
+
+    </div>
+    <div class="columns nine">
+      
+	<main>
+		<article>
+			<h1>Handing Code off between machines</h1>
+			<time>20.10.2020 16:24</time>
+			<div>
+				<p>I recently upgrade my work machine to a brand-spanking new ThinkPad, which I love. However, I&rsquo;m still working out all of the details of switching &ndash; I did not have a good dotfile setup (which I am now rectifying). Little things, like remembering the hacky ways I had set up credentials to various services, or convenience environment variables that I forgot weren&rsquo;t actually built into the OS ($ASHLEY_PERSONAL_PROJECTS should be, imho).</p>
+<p>Because I&rsquo;m still switching between two laptops, and am much too lazy to dedicate the time to just finishing the process, I&rsquo;m running into situations where most of what I need to do works on the new laptop, but I run into a snag I can&rsquo;t fix immediately. Most recently, I had a branch of a project running with some debug code that I wanted to run against some data in S3. Unfortunately, I had not set up the AWS permissions properly, and so decided to run the job on my old laptop.</p>
+<p>To get the code to the old location, I pushed it up to github and then fetched it back down again, which worked fine (also, Slack works really well as a cross-environment clipboard for terminal commands!).</p>
+<p>I was laughing about this situation with my coworker, and he mentioned that it was possible to just send the code directly from one laptop to the other. I recalled reading that you can set up your own workstation as a remote, and thought it might be worth looking into that for the next ~few months~ few days until I&rsquo;m finally set up in the new work environment.</p>
+<h2 id="the-problem">The problem</h2>
+<p>You have some debugging code, or perhaps a private repo that you&rsquo;d like to get onto another machine, but don&rsquo;t want to push it to github just yet. How do you get that code from one machine to the other, directly?</p>
+<h2 id="solution">Solution</h2>
+
+			</div>
+			
+			<div>
+				
+			</div>
+		</article>
+	</main>
+
+      <div>
+  <footer>
+    <p class="pull-right"><a href="#">Back to top</a></p>
+    <p>&copy; 2021 Ashley Drake</p>
+  </footer>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script id="parsely-cfg" src="//cdn.parsely.com/keys/aldra.co/p.js"></script>
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-64870233-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    </div>
+  </div>
+</body>
+
+</html>
