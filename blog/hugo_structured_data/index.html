@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Using Hugo Structured Data to Build a Resume Page</title>
+   
+
+  <link rel="stylesheet" href="https://aldra.co/css/normalize.css">
+  <link rel="stylesheet" href="https://aldra.co/css/skeleton.css">
+  <link rel="stylesheet" href="https://aldra.co/css/style.css">
+  <link rel="stylesheet" href="https://aldra.co/fontawesome-free-5.11.2-web/css/all.min.css">
+  
+  
+<script type="application/ld+json">
+    
+        {
+            "@context" : "http://schema.org",
+            "@type": "Article",
+            "articleSection": "posts",
+            "name": "Using Hugo Structured Data to Build a Resume Page",
+            "headline": "Using Hugo Structured Data to Build a Resume Page",
+            "description": "How to leverage Hugo\u0027s data directory to build a resume page that\u0027s easy to maintain, style, and host.",
+            "inLanguage": "en-US",
+            "author": "Ashley Drake",
+            "creator": "Ashley Drake",
+            "publisher": "Ashley Drake",
+            "accountablePerson": "Ashley Drake",
+            "copyrightHolder": "Ashley Drake",
+            "copyrightYear": "2021",
+            "datePublished": "2021-07-30T16:00:00",
+            "dateModified": "2021-07-30T16:00:00",
+            "url": "https:\/\/aldra.co\/blog\/hugo_structured_data\/",
+            "wordCount": "1957",
+            "keywords": ["hugo", "go", "blogging", "tutorial", "webdev", "how to", "Blog"]
+        }
+    
+
+</script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="columns three">
+      <header>
+	<a href="https://aldra.co/"><img class="bubblehead me" src="https://aldra.co/headshot-amsterdam.jpg"></a>
+	<h1><a href="https://aldra.co/">Ashley Drake</a></h1>
+	<h2>Software Engineer</h2>
+	<p>a.l.drake713@gmail.com</p>
+	<p>
+		<a href="https://twitter.com/al_draco"><i class="fab fa-twitter"></i>Twitter</a>
+		<a href="https://github.com/aldraco"><i class="fab fa-github"></i>Github</a>
+
+	</p>
+	<ul>
+		<li><a href="https://aldra.co/resume">Resume</a></li>
+		<li><a href="https://aldra.co/posts">Blog</a></li>
+
+	</ul>
+
+</header>
+
+    </div>
+    <div class="columns nine">
+      
+	<main>
+		<article>
+			<h1>Using Hugo Structured Data to Build a Resume Page</h1>
+			<time>30.07.2021 16:00</time>
+			<div>
+				<p>In this post, I&rsquo;ll demonstrate how I built my Resume page using Hugo&rsquo;s data directory functionality.</p>
+<p>I have enjoyed using Hugo to set up a blog. I don&rsquo;t particularly enjoy design and layout, so a system that allows me to do that one time, while still outputting an cheap-to-host static site, is nice to work with.</p>
+<p>I wanted to set up a resume page, and give myself more control over the design than I would have using Markdown/CSS &ndash; treating the resume as a collection of data, instead of a piece of content, provided that flexibility.</p>
+<h2 id="what-is-the-data-directory">What is the data directory?</h2>
+<p>Hugo is primarily concerned with managing content - blog posts, documentation, etc. - in the context of a static website. Dynamic blogging platforms (Wordpress is a great example) allow you to manage content using an interactive UI, which takes your blog post text as input and saves it to a database. To display it to a user, Wordpress will query the database and dynamically build the page at request time. What gets shipped to the server is a template, and a database of bare, un-templated and unstyled text.</p>
+<p>A static website, on the other hand, is shipped to the server with each content page already completely built out into an HTML file. What you might lose in terms of a larger project size, you gain with speed, since there is no round-trip to a database to display a page.</p>
+<p>A static site generator like Hugo, then, is primarily interested in providing the same convenience around templates and content - developers can maintain templates separately from their content, which saves time. The main difference is that instead of building the page each time it&rsquo;s requested, the generator will build your pages once, and ship all of them to the server together.</p>
+<p>So &hellip; how does this help us understand Hugo&rsquo;s data directory?</p>
+<p>Data in Hugo is supplemental to content. In other words, if each blog post is one piece of content, a unique page will be generated for each blog post. Data, however, is accessible from any page on my site, and therefore can be used anywhere on your site. You could reference the same piece of Data multiple times on your site, but only need to change it in one place to see those changes reflected consistently on each page.</p>
+<p>Here is Hugo&rsquo;s Documentation on the Data directory: <a href="https://gohugo.io/templates/data-templates/">https://gohugo.io/templates/data-templates/</a></p>
+<h2 id="setting-up-the-data-directory">Setting up the <code>data</code> directory</h2>
+<p>We will be treating the <code>data</code> directory like a dataset, a collection of professional experiences, and using that dataset to build a Resume page. Each work experience has some metadata, like the name of the company you worked for, your title, a photo, and some bullet points for projects you worked on. The experiences can be ordered by time.</p>
+<p>For now, let&rsquo;s format a resume that organizes experiences primarily around &ldquo;Employers.&rdquo; (We&rsquo;ll revisit this structure later.) Here is what you&rsquo;d create inside your <code>data</code> directory:</p>
+<pre><code>\data
+  \resume
+    index.yaml
+    \employers
+      abc-employer.yaml
+      xyz-employer.yaml
+      awesome-unicorn-startup.yaml
+
+    \oss
+      experience-1.yaml
+      experience-2.yaml
+</code></pre><p>A note about sorting: when converting these <code>.yaml</code> files into an object in memory, the files will resolve into an alphasorted order in the object, sorted by filename. We will provide an explicit sort key later in our template, but you could also prefix the filenames if you&rsquo;d prefer it.</p>
+<p>Let&rsquo;s examine each component:</p>
+<h3 id="root-data">Root Data</h3>
+<p>Note the <code>index.yaml</code> file at the root of the data folder. It contains some basic information I want at the top of my resume:</p>
+<pre><code>Summary:
+  - &quot;A sentence summarizing how you work.&quot;
+  - &quot;Another sentence summarizing how you work.&quot;
+Skills:
+  Languages:
+    - Python
+    - Golang
+  Tools:
+    - Chef
+    - Terraform
+  Frameworks:
+    - Kafka
+    - Elasticsearch
+    - Redis
+</code></pre><p>You can put whatever you&rsquo;d like here, regardless of whether you choose to display it. These items should be globally relevant to you as a person, not to any one experience.</p>
+<h3 id="employers--open-source">Employers / Open Source</h3>
+<p>Each file inside the OSS and Employers sections represents a unique work or development experience. Here is one example:</p>
+<pre><code>Name: &quot;Company ABC&quot;
+Website: &quot;&lt;url&gt;&quot;
+StartYear: 2014
+Image: &quot;&lt;url&gt;&quot;
+Blurb: &quot;Company ABC does X awesome thing and Y awesome thing.&quot;
+Roles: 
+  Software Engineer:
+    Title: &quot;Software Engineer&quot;
+    Start: &quot;2021&quot;
+    End: &quot;current&quot;
+    Technologies:
+      - Go
+      - Erlang
+    Bullets:
+      - &quot;I do X, Y, and Z awesome things at ABC.&quot;
+</code></pre><p>Note that &ldquo;Roles&rdquo; is a list of objects, even though there&rsquo;s currently only one Role. Depending on how you want to set up your resume, you might consider each &ldquo;title&rdquo; a separate work experience, which is generally recommended if you get a promotion &ndash; that way you can speak to how you stepped into a new level of responsibility, etc. by listing new projects separately under each title.</p>
+<p>Here is an example with multiple roles:</p>
+<pre><code>Name: &quot;Company&quot;
+Website: &quot;&lt;url for company&gt;&quot;
+StartYear: 2015
+Image: &quot;&lt;url for image&gt;&quot;
+Blurb: &quot;Blurb about the company&quot;
+Roles:
+  Senior Software Engineer:
+    Title: &quot;Senior Software Engineer&quot;
+    Start: &quot;2020&quot;
+    End: &quot;2021&quot;
+    Technologies:
+      - ...elided
+    Bullets:
+      - ... elided
+  Software Engineer:
+    Title: &quot;Software Engineer&quot;
+    Start: &quot;2017&quot;
+    End: &quot;2020&quot;
+    Technologies:
+      - ...elided
+    Bullets:
+      - ..elided
+
+</code></pre><p>Fantastic. Now we have our data to work with. We only have to worry about writing it once, and we can mentally shift our focus to templating and presenting it.</p>
+<h2 id="using-the-data">Using the data</h2>
+<p>Now that our structured data is set up, let&rsquo;s use it.</p>
+<p>In a Hugo template, the <code>Data</code> object is available at the root of your site, which is accessed in mustache templates at <code>.Site</code>, i.e. <code>{{ range .Site.Data.resume.employers }}</code> would range over the employers collection as we set it up above.</p>
+<p>Let&rsquo;s start with the root item in the folder, <code>data/index.yaml</code>, which contains the &ldquo;header&rdquo; material for the Resume.</p>
+<h3 id="setting-up-a-single-page-in-hugo">Setting Up a Single Page in Hugo</h3>
+<p>First, we need to figure out how to tell Hugo to make our resume a single page. This section presupposes a little bit of Hugo domain knowledge, but not too much more than what can be learned in the <a href="https://gohugo.io/getting-started/quick-start/">Quick Start</a>. This page on <a href="https://gohugo.io/templates/lookup-order/">Layout lookup order</a> may also be helpful.</p>
+<p>In my blog, I have &ldquo;resume&rdquo; set up as a content type, so to render it as a static page under <code>http://&lt;siteroot.com&gt;/resume</code>, I did this:</p>
+<ul>
+<li>gave it a <code>single.html</code> layout template, under <code>layouts/resume/single.html</code></li>
+<li>put one content index page directly under the Content folder, i.e. <code>content/resume.md</code> without making a folder for multiple <code>resume</code> pages</li>
+<li>(optional) placed any partial templates used in <code>layouts/resume/single.html</code> under <code>layouts/partials/resume/</code></li>
+</ul>
+<p>Here is what the index page in <code>content/resume.md</code> looks like:</p>
+<pre><code>+++
+title = &quot;&lt;Page Title here&gt;&quot;
+layout = &quot;resume&quot;
+type = &quot;resume&quot;
++++
+</code></pre><p>This setup tells Hugo that I only have one static page that I want to display here, not a collection of content. The <code>single.html</code> template is the default template Hugo uses when looking to display a single piece of content. The front matter in <code>resume.md</code> makes sure Hugo uses my <code>single.html</code> template.</p>
+<h3 id="templates">Templates</h3>
+<p>Next, let&rsquo;s set up the base template for the resume, inside <code>layouts/resume/single.html</code>. It is responsible for rendering the root content (the &ldquo;about me&rdquo; we wrote earlier), and then calling the two partial templates we will soon set up for work and oss. You can certainly put all of your template in the same file to start with, but we&rsquo;ll use separate pieces here since they&rsquo;re easier to read.</p>
+<pre><code>{{ define &quot;main&quot; }}
+&lt;main&gt;
+  &lt;section id=&quot;resume&quot; class=&quot;resume&quot;&gt;
+
+    &lt;h2&gt;About Me&lt;/h2&gt;
+    {{ range .Site.Data.resume.index.Summary }}
+      &lt;p&gt;{{ . }}&lt;/p&gt;
+    {{ end }}
+
+    &lt;h2&gt;Primary Skills/Tools&lt;/h2&gt; 
+    {{ range $key, $vals := .Site.Data.resume.index.Skills }}
+      &lt;ul id=&quot;skills&quot;&gt;&lt;span&gt;{{ $key }}&lt;/span&gt; 
+        {{ range $vals }}
+          &lt;li&gt;{{ . }}&lt;/li&gt;
+        {{ end }}
+      &lt;/ul&gt;
+    {{ end }} 
+    
+    {{ partial &quot;resume/work.html&quot; . }} 
+    {{ partial &quot;resume/oss.html&quot; . }}
+  &lt;/section&gt;
+&lt;/main&gt;
+{{ end }}
+</code></pre><p>The define statement says that this is the main block for the resume page, which is rendered into <code>layouts/_default.html</code> like this:</p>
+<!-- raw HTML omitted -->
+<p>So when the URL is <code>yoursite.com/resume</code>, Hugo looks for the resume content section, sees there is a root page, and renders the single page for it by using your <code>resume/single.html</code> template with the <code>main</code> directive you defined for it, which is then templated into <code>layouts/_default.html</code>, the root template for your whole site.</p>
+<p>Let&rsquo;s look more closely at how we use the data in the template we just wrote, starting with our summary:</p>
+<pre><code>{{ define &quot;main&quot; }}
+&lt;main&gt;
+  &lt;section id=&quot;resume&quot; class=&quot;resume&quot;&gt;
+    &lt;h2&gt;About Me&lt;/h2&gt;
+    {{ range .Site.Data.resume.index.Summary }}
+      &lt;p&gt;{{ . }}&lt;/p&gt;
+    {{ end }}
+</code></pre><p>The <code>range</code> keyword loops over a list or object, much like <code>for ... in</code> in Python. The <code>{{ . }}</code> directive just uses the item that&rsquo;s currently in the loop variable directly. You&rsquo;ll see later how that looks when the item currently in the loop is itself a structured item; here, it&rsquo;s a string, since each item in the <code>Summary</code> list in our <code>.yaml</code> file was a String. We turn them into a paragraph each.</p>
+<p>For Skills, we set it up as a map / dictionary. It has keys and values, which we can also render into our page, like this:</p>
+<pre><code>    {{ range $key, $vals := .Site.Data.resume.index.Skills }}
+      &lt;ul id=&quot;skills&quot;&gt;&lt;span&gt;{{ $key }}&lt;/span&gt; 
+        {{ range $vals }}
+          &lt;li&gt;{{ . }}&lt;/li&gt;
+        {{ end }}
+      &lt;/ul&gt;
+    {{ end }} 
+</code></pre><h3 id="template-partials">Template Partials</h3>
+<p>Now, let&rsquo;s add the work sections. We&rsquo;ll go ahead and make another partial template for those, to make them easier to manage:</p>
+<p><code>/layouts/partials/work.html</code></p>
+<p>This template will contain our professional work experiences. In this file, we&rsquo;ll do:</p>
+<ul>
+<li>range over Site.Data.resume.Employers and print the metadata for each employer</li>
+<li>range over the Roles inside each Employer object</li>
+</ul>
+<p>Here&rsquo;s how it looks:</p>
+<pre><code>&lt;h2&gt;Work Experience&lt;/h2&gt;
+
+ {{ range sort .Site.Data.resume.employers &quot;StartYear&quot; &quot;desc&quot; }}
+  &lt;h3&gt;{{ .Name }}&lt;/h3&gt;
+  &lt;a href={{ .Website }}&gt;{{ with .Image }}&lt;img class=&quot;thumbnail&quot; src={{ . }}&gt;{{ end }}{{ with .WebsiteText }}{{ . }}{{ end }}&lt;/a&gt;
+  &lt;p&gt;{{ .Blurb }}&lt;/p&gt;
+  {{ range .Roles }}
+    &lt;h4&gt;{{ .Title }}&lt;span class=&quot;u-pull-right&quot;&gt;{{ .Start }} {{ with .End }}- {{ . }} {{ end }}&lt;/span&gt;&lt;/h4&gt;
+    &lt;span class='technologies'&gt;{{ range .Technologies}} {{ . }} {{ end }}&lt;/span&gt;
+    &lt;p&gt;{{ .Blurb }}&lt;/p&gt;
+    &lt;ul&gt;
+      {{ range .Bullets }}
+        &lt;li&gt;{{ . }}&lt;/li&gt;
+      {{ end }}
+    &lt;/ul&gt;
+  {{ end }} 
+{{ end }}
+</code></pre><p>We sort the experiences by the sort key we provided in our data file. This helps us display items in chronological order. The <code>with</code> keyword allows us to conditionally render those blocks, if that item is present. Note that each is followed by <code>{{ end }}</code> to mark the end of the conditional block.</p>
+<p>Note that the term <code>.Blurb</code> appears twice, but references two different values. The top-most <code>.Blurb</code> is the one we wrote for each employer experience. Then, each Role also contains a <code>.Blurb</code>. As we <code>range</code> over <code>.Roles</code>, we can reference a key in the root level for that Role directly, e.g. <code>.Title</code> and <code>.Blurb</code> are available per-Role. That&rsquo;s because the <code>.</code> now refers to each <code>Role</code> object, instead of one string.</p>
+<h2 id="putting-it-all-together">Putting it all Together</h2>
+<p>Once we have all of our employement data entered, and our templates declare what to display and where, you can style each element as you please. In the templates above, the main <code>&lt;section&gt;</code> tag is identified and tagged with the <code>resume</code> class, which helped isolate any resume-specific styles in my CSS.</p>
+<p>Run <code>hugo server</code>, navigate to <code>http://yoursite.com/resume</code>, and check it out!</p>
+<p>Pretty cool, right?</p>
+<h2 id="other-resume-formats">Other Resume Formats</h2>
+<p>This is by no means the only way to set up a resume. Reverse-Chronological with categories like &ldquo;Education,&rdquo; &ldquo;Professional Experience&rdquo; is a popular format, but another format might suit your better, like a Story format. If you have internships or work experience interleaved with school, or have a side business, you might prefer a story format, which orients everything on one central timeline. Stack Overflow&rsquo;s Developer Story is a good example of this format.</p>
+<p>Hope this was helpful - there are so many ways to approach building a Resume, and this format supports a lot of them very easily. I&rsquo;d love to see what you come up with!</p>
+
+			</div>
+			
+			<div>
+				
+			</div>
+		</article>
+	</main>
+
+      <div>
+  <footer>
+    <p class="pull-right"><a href="#">Back to top</a></p>
+    <p>&copy; 2021 Ashley Drake</p>
+  </footer>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script id="parsely-cfg" src="//cdn.parsely.com/keys/aldra.co/p.js"></script>
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-64870233-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    </div>
+  </div>
+</body>
+
+</html>

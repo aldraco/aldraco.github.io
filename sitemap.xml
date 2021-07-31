@@ -4,16 +4,21 @@
   
   <url>
     <loc>https://aldra.co/</loc>
-    <lastmod>2020-06-19T10:04:52-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://aldra.co/blog/git_rebase_tricks_interactive/</loc>
-    <lastmod>2020-06-19T10:04:52-07:00</lastmod>
+    <lastmod>2021-07-30T16:00:00-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://aldra.co/posts/</loc>
+    <lastmod>2021-07-30T16:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aldra.co/blog/hugo_structured_data/</loc>
+    <lastmod>2021-07-30T16:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aldra.co/blog/git_rebase_tricks_interactive/</loc>
     <lastmod>2020-06-19T10:04:52-07:00</lastmod>
   </url>
   

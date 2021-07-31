@@ -6,7 +6,18 @@
     <description>Recent content on Ashley Drake</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 19 Jun 2020 10:04:52 -0700</lastBuildDate><atom:link href="https://aldra.co/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 30 Jul 2021 16:00:00 -0700</lastBuildDate><atom:link href="https://aldra.co/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Using Hugo Structured Data to Build a Resume Page</title>
+      <link>https://aldra.co/blog/hugo_structured_data/</link>
+      <pubDate>Fri, 30 Jul 2021 16:00:00 -0700</pubDate>
+      
+      <guid>https://aldra.co/blog/hugo_structured_data/</guid>
+      <description>In this post, I&amp;rsquo;ll demonstrate how I built my Resume page using Hugo&amp;rsquo;s data directory functionality.
+I have enjoyed using Hugo to set up a blog. I don&amp;rsquo;t particularly enjoy design and layout, so a system that allows me to do that one time, while still outputting an cheap-to-host static site, is nice to work with.
+I wanted to set up a resume page, and give myself more control over the design than I would have using Markdown/CSS &amp;ndash; treating the resume as a collection of data, instead of a piece of content, provided that flexibility.</description>
+    </item>
+    
     <item>
       <title>Git Rebase Tricks: Rebase Interactive</title>
       <link>https://aldra.co/blog/git_rebase_tricks_interactive/</link>
