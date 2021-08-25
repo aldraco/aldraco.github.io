@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Ashley Drake</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 30 Jul 2021 16:00:00 -0700</lastBuildDate><atom:link href="https://aldra.co/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 01 Aug 2021 10:00:00 -0700</lastBuildDate><atom:link href="https://aldra.co/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>New To Programming - Good Resources To Get Started</title>
+      <link>https://aldra.co/blog/where-to-start-new-to-programming/</link>
+      <pubDate>Sun, 01 Aug 2021 10:00:00 -0700</pubDate>
+      
+      <guid>https://aldra.co/blog/where-to-start-new-to-programming/</guid>
+      <description>I often get emails from new developers who are looking to transition into tech, but not quite sure where or how to get started. It is a challenge that I have also faced myself - I also started learning to code several years ago, feeling overwhelmed with all of the options, and having little to no context to help choose between them. Should I do a bootcamp? Which bootcamp should I do?</description>
+    </item>
+    
     <item>
       <title>Using Hugo Structured Data to Build a Resume Page</title>
       <link>https://aldra.co/blog/hugo_structured_data/</link>
