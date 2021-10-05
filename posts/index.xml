@@ -17,6 +17,15 @@
     </item>
     
     <item>
+      <title>New To Programming - How Does A Website Work?</title>
+      <link>https://aldra.co/blog/where-to-start-how-websites-work/</link>
+      <pubDate>Sun, 01 Aug 2021 10:00:00 -0700</pubDate>
+      
+      <guid>https://aldra.co/blog/where-to-start-how-websites-work/</guid>
+      <description>One of the hardest questions to start answering as a new developer is &amp;ldquo;what type of career do you want to pursue?&amp;rdquo; Many people I talk to (myself included) got into programming because it&amp;rsquo;s enjoyable, and stimulates our creativity. It&amp;rsquo;s rewarding and exciting to type some code, hit a button, and see something come into being that didn&amp;rsquo;t exist 5 minutes ago. However, as a newcomer, it&amp;rsquo;s difficult to map that impulse and enjoyment to a concrete career path.</description>
+    </item>
+    
+    <item>
       <title>Using Hugo Structured Data to Build a Resume Page</title>
       <link>https://aldra.co/blog/hugo_structured_data/</link>
       <pubDate>Fri, 30 Jul 2021 16:00:00 -0700</pubDate>
@@ -55,6 +64,16 @@ feature-name/my-branch feature-name/his-branch At some point, we decided it was 
       
       <guid>https://aldra.co/blog/python-iter-iterator-iterables/</guid>
       <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://aldra.co/blog/where-to-start-preparing-for-interviews/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://aldra.co/blog/where-to-start-preparing-for-interviews/</guid>
+      <description>Tips for algorithmic interviews
+ say what you do know, even if you don&amp;rsquo;t know something else handle edge cases (empty list, negative numbers, zero, None, etc) use descriptive variables where possible (avoid i/j)  </description>
     </item>
     
   </channel>

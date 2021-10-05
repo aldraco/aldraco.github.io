@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>New To Programming - How Does A Website Work?</title>
+   
+
+  <link rel="stylesheet" href="https://aldra.co/css/normalize.css">
+  <link rel="stylesheet" href="https://aldra.co/css/skeleton.css">
+  <link rel="stylesheet" href="https://aldra.co/css/style.css">
+  <link rel="stylesheet" href="https://aldra.co/fontawesome-free-5.11.2-web/css/all.min.css">
+  
+  
+<script type="application/ld+json">
+    
+        {
+            "@context" : "http://schema.org",
+            "@type": "Article",
+            "articleSection": "posts",
+            "name": "New To Programming - How Does A Website Work?",
+            "headline": "New To Programming - How Does A Website Work?",
+            "description": "How do websites work, and how does that structure map to career opportunities for programmers? This walkthrough of how websites work outlines the various groups of people that make them work, and how you can become one of them.",
+            "inLanguage": "en-US",
+            "author": "Ashley Drake",
+            "creator": "Ashley Drake",
+            "publisher": "Ashley Drake",
+            "accountablePerson": "Ashley Drake",
+            "copyrightHolder": "Ashley Drake",
+            "copyrightYear": "2021",
+            "datePublished": "2021-08-01T10:00:00",
+            "dateModified": "2021-08-01T10:00:00",
+            "url": "https:\/\/aldra.co\/blog\/where-to-start-how-websites-work\/",
+            "wordCount": "2088",
+            "keywords": ["programming", "new devs", "how to", "learning", "resources", "Blog"]
+        }
+    
+
+</script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="columns three">
+      <header>
+	<a href="https://aldra.co/"><img class="bubblehead me" src="https://aldra.co/headshot-amsterdam.jpg"></a>
+	<h1><a href="https://aldra.co/">Ashley Drake</a></h1>
+	<h2>Software Engineer</h2>
+	<p>a.l.drake713@gmail.com</p>
+	<p>
+		<a href="https://twitter.com/al_draco"><i class="fab fa-twitter"></i>Twitter</a>
+		<a href="https://github.com/aldraco"><i class="fab fa-github"></i>Github</a>
+
+	</p>
+	<ul>
+		<li><a href="https://aldra.co/resume">Resume</a></li>
+		<li><a href="https://aldra.co/posts">Blog</a></li>
+
+	</ul>
+
+</header>
+
+    </div>
+    <div class="columns nine">
+      
+	<main>
+		<article>
+			<h1>New To Programming - How Does A Website Work?</h1>
+			<time>01.08.2021 10:00</time>
+			<div>
+				<p>One of the hardest questions to start answering as a new developer is &ldquo;what type of career do you want to pursue?&rdquo; Many people I talk to (myself included) got into programming because it&rsquo;s enjoyable, and stimulates our creativity. It&rsquo;s rewarding and exciting to type some code, hit a button, and see something come into being that didn&rsquo;t exist 5 minutes ago. However, as a newcomer, it&rsquo;s difficult to map that impulse and enjoyment to a concrete career path.</p>
+<p>There are lots of different types of &ldquo;computer programmers,&rdquo; who work on different types of projects, and with different kinds of technology. While building apps and websites is certainly not the only career path &ndash; far from it! &ndash; it&rsquo;s a great place for new devs to start to understand how responsibilities can be divided, and what different kinds of careers might look like.</p>
+<p>This guide will use a fictional app (for which you can probably guess it&rsquo;s real-life inspiration) to start to understand how websites work, and the kinds of jobs that go into building them. I&rsquo;ll also highlight what skills you would want to invest in to pursue each field. Keep in mind:</p>
+<ol>
+<li>This guide necessarily cannot cover every type of career, industry, or technology choice. Look at it as a starting point for asking questions about things that interest you.</li>
+<li>This guide is not meant to be a full, exhaustive explanation of websites and how they work; I opted for highlighting information that helps us understand the people and groups behind building the app, instead of every single piece of infrastructure.</li>
+<li>There is a lot of overlap - all engineers do security to some degree, though Security engineers focus on it. Full stack engineers span the entire &ldquo;stack&rdquo; but often each engineer has a favored side of that stack. Think of each of these as flavors you can mix and match, not hard-and-fast career tracks that cannot be combined. Generally, the smaller the company, the more roles you can experiece in one job.</li>
+<li>This career field is constantly changing, and your career can constnatly change! If you&rsquo;re interested in more than one (or all) of these pieces, it&rsquo;s entirely possible you can work on all of those in your career.</li>
+</ol>
+<h2 id="who-is-this-guide-for">Who Is This Guide For?</h2>
+<p>This guide is meant for developers just starting to learn how to code, or who are trying to figure out the various career paths in tech and how they relate to each other.</p>
+<h2 id="introducing-chirpy">Introducing: Chirpy</h2>
+<p>Our application, Chirpy, is an app that allows users to create an online profile, post small updates (&ldquo;chirps&rdquo;) to their profile, and subscribe to other Chirpy users to read their Chirps.</p>
+<p>Yeah&hellip; it&rsquo;s Twitter. Bear with me.</p>
+<h3 id="wait-what-do-you-mean-by-app-phone-apps">Wait, what do you mean by &ldquo;app?&rdquo; Phone apps?</h3>
+<p>Yes, and no.</p>
+<p>Most of us interact with &ldquo;apps&rdquo; on our phone, and they&rsquo;re a thing that we can download from a central repository, like an App Store. You interact with the app by opening it on your phone, and it has nothing to do with other apps on your phone (for the most part).</p>
+<p>However, there are also apps that you access every day from within your browser (Chrome, Safari, etc). There is no explicit download step, so it feels very different from the phone experience. Instead of downloading a program to your laptop, you are using your browser to go to a URL that is hosting the app, and you interact with it through your browser, instead of app-specific software. We&rsquo;ll come back to this later.</p>
+<p>The big distinction in terms of &ldquo;web applications&rdquo; vs &ldquo;static websites&rdquo; is whether the website can be run completely in your browser, or whether it needs to access a database or other backend service to run. For example - if you are able to create an account, or upload data to a website, it&rsquo;s a web application that has a database containing users' login information somewhere.</p>
+<p>In contrast, the website you&rsquo;re viewing right now is a static website - all of the code that is used to run my blog is downloaded directly to your browser and run there. There are no database items, no interactions with other services. It&rsquo;s just HTML, CSS, and JS.</p>
+<h3 id="ok-so-how-does-chirpy-work">Ok, so how does Chirpy work?</h3>
+<p>Let&rsquo;s start with your laptop.</p>
+<p>Your friend tells you about Chirpy, and convinces you to sign up. So you type &ldquo;chirpy&rdquo; into Google, and click on the top result, which is a link to <code>https://chirpy.com</code>. (This is a real website at time of this writing, so we&rsquo;ll just have to use our imagination).</p>
+<p><strong>How does my browser show me this website?</strong></p>
+<p>Your browser reads the URL (<code>chirpy.com</code>) and consults a lookup service called DNS, which maps human-readable URLs to more computer-friendly IP addresses. Those look like this: <code>142.250.69.238</code>.</p>
+<p>Each IP address maps to an actual server somewhere, that is hosting the code for the website you&rsquo;re trying to view. Your browser will follow this IP address and eventually make a request to that server at a particular port number - in this case, port <code>443</code>. The code running at that location should respond to your browser with a bundle of HTML, CSS, and JS files. These are copied to your browser, and your browser is then responsible for putting those files together and creating the website you can see in your browser.</p>
+<p><em>Jobs</em></p>
+<p>Wow! Already we&rsquo;ve touched on a ton of different careers, just accessing one website.</p>
+<p><strong>Network Engineers</strong></p>
+<p>Network Engineers are responsible for all of the pieces of infrastructure that make up the internet. The internet is basically just a giant computer party, where all of the computers know how to talk to one another and how to direct traffic to the right place.</p>
+<p>The software that builds the backbone of the internet is built by OS engineers. They make sure that the code that runs the DNS service, routers, and various other pieces of the internet are fast, secure, and reliable.</p>
+<p><strong>Open Source Software Developers</strong></p>
+<p>If you use Chrome, the code that backs the browser experience was built by open source software engineers. Really, any kind of software engineer can be an &ldquo;open source engineer&rdquo; - the difference here is that instead of code being built in a company, and the source code (the human-readable code, as opposed to the 0&rsquo;s and 1&rsquo;s the computer cares about) hidden from the public, the source code is &ldquo;open.&rdquo; Anyone - you, me, anyone else who is interested - can participate in building this software, or read how it works.</p>
+<p>This is very cool, and also is a great learning opportunity. I&rsquo;ll highlight the ASOS book here - these are free and available online, and walk through various open source projects that you can learn from. I highly recommend them once you get a better feel for the various areas of the tech industry.</p>
+<p><strong>Backend Engineers</strong></p>
+<p>We will talk a lot more about Backend Engineers, but this is our first encounter with code written by this group of people. The code running at <code>143.251.xx.xxx</code> and port <code>443</code>, and is ready to receive and respond to requests, will be written by Backend Engineers. These engineers are responsible for making sure that when you type that URL and hit enter, once your request clears DNS and the Network itself, that you get some sort of response back.</p>
+<p>In this case, we made a request to the server to give us HTML, CSS, and JS files that make up a website. For this part of the process, Backend engineers make sure that the server returns the correct files, that it can handle sometimes millions of requests per second efficiently.</p>
+<p>Great - now you&rsquo;re browsing Chirpy. You&rsquo;re clicking around on the homepage, looking at some example Chirps from famous people, and there is a form you can fill out to sign up for an account.</p>
+<p><strong>Frontend Engineer</strong></p>
+<p>If a website is a restaurant, the frontend is like the &ldquo;front of house&rdquo; &ndash; all of the parts of the restaurant that the customer can see and interact with. Frontend Engineers will write the HTML, CSS, and JS that make up the front page experience. They will write code that displays each Chirp correctly, and that creates the signup form.</p>
+<p>Frontend Engineers also have a hand in making sure that the various non-code assets, like images and fonts, are served efficiently and displayed correctly. For example, if you&rsquo;re viewing this website on mobile, you&rsquo;d probably prefer the website show you a smaller image, because it saves data - no need to download a 5MB file when you can download a 1MB file that looks exactly the same on a small screen. Frontend Engineers make sure that the experience is great for every kind of user.</p>
+<p><strong>Web Designer</strong></p>
+<p>This role can overlap a lot with Frontend Engineer, but these people are responsible for how things look. They may or may not write code that implements their vision - sometimes, they will design an experience and hand off images, colors, measurements, etc to the frontend engineers to transform into CSS and code that implements that vision.</p>
+<p>Designers can decide what color scheme makes the most sense for the website, how large a button should be, what shape it is, etc. They will make sure that design elements are consistent across the entire website expereince, to help users quickly recognize what they&rsquo;re looking at. A Chirp has a consistent look and feel across the entire experience, whether that&rsquo;s mobile, desktop, or iPhone app.</p>
+<p>Ok, we are convinced we will enjoy using Chirpy, and want to sign up. We start to fill out the form, and then hit Submit.</p>
+<p><strong>User Experience / User Interaction Engineer</strong></p>
+<p>These Engineers care about how people use a website. Again, Frontend Engineers and Designers care about this too - UX and UI engineers are more technically focused than designers, and more focused on the interaction itself than general frontend engineers.</p>
+<p>These engineers might design the signup flow for Chirpy - what fields are on the form on the front page? Does the form submit to the server immediately, or does it walk a user through an entire signup flow before making a request to a server? Appearance is part of this decision, but it&rsquo;s more focused on a logical decision of how things work.</p>
+<p><strong>Backend Engineers</strong></p>
+<p>They&rsquo;re back! (yes, that was a horrible joke). Once the form is submitted, your browser is actually making another request to the server (located at <code>143.251.xx.xxx</code>, remember?) This time, instead of asking for data, it&rsquo;s sending data to the server. Specifically, it&rsquo;s sending your form data (hopefully encrypted) to allow you to sign up for Chirpy.</p>
+<p>This form data will be sent to a specific address on the server - an endpoint - that is designed to process that form information. Let&rsquo;s say you typed in a username you&rsquo;d like, a password, and some basic user data about yourself. The Backend Engineer would have written the code that looks up the username in the database, and either returns an error saying it&rsquo;s already been taken, or creates a new User in the database with your information. She or he would also likely have designed the database that holds that information, but in a larger organization, it might be done by a Database Developer or Engineer.</p>
+<p><strong>Database Engineer</strong></p>
+<p>These engineers care about what format data is stored in, where it&rsquo;s stored, and for how long (amongst many other things). Think about your User data - you have a username, a password, and some demographic information (age, location, etc).</p>
+<p>The database designer is concerned with how easily this information can be found again. When a service like Chirpy has millions of users, it takes time to search through every single one looking for your information - unless we can optimize that process. A database may contain an index, which is a data structure that makes lookups faster. You use an index when you go to a grocery store - you&rsquo;re looking for a specific item, but the index will show you what kinds of items are in each aisle. The index is the placard hanging from the ceiling, or on the handle of your hsopping cart. While it doesn&rsquo;t contain information about every single item in the store, it gives you enough to narrow down your search. Database indexes can do even better, and make lookups fast - but they have to be designed thoughtfully.</p>
+<p>Ok, you&rsquo;ve signed up and want to send a Chirp! You look at your home screen and notice</p>
+
+			</div>
+			
+			<div>
+				
+			</div>
+		</article>
+	</main>
+
+      <div>
+  <footer>
+    <p class="pull-right"><a href="#">Back to top</a></p>
+    <p>&copy; 2021 Ashley Drake</p>
+  </footer>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script id="parsely-cfg" src="//cdn.parsely.com/keys/aldra.co/p.js"></script>
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-64870233-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    </div>
+  </div>
+</body>
+
+</html>
