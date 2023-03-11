@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Ashley Drake</title>
+    <title>Ash Drake</title>
     <link>https://aldra.co/</link>
-    <description>Recent content on Ashley Drake</description>
+    <description>Recent content on Ash Drake</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 01 Aug 2021 10:00:00 -0700</lastBuildDate><atom:link href="https://aldra.co/index.xml" rel="self" type="application/rss+xml" />
@@ -86,7 +86,7 @@ feature-name/my-branch feature-name/his-branch At some point, we decided it was 
     </item>
     
     <item>
-      <title>Resume | Ashley Drake</title>
+      <title>Resume | Ash Drake</title>
       <link>https://aldra.co/resume/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
